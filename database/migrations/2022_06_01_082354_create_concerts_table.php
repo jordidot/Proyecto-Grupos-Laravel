@@ -37,7 +37,7 @@ class CreateConcertsTable extends Migration
             $table->string('concert_id');
             $table->timestamps();
         });
-
+    }
     /**
      * Reverse the migrations.
      *
@@ -46,5 +46,7 @@ class CreateConcertsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('concerts');
+        Schema::dropIfExists('concerts_translations');
+        Schema::dropIfExists('concerts_groups');
     }
 }
