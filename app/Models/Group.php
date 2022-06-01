@@ -10,5 +10,5 @@ class Group extends Model
 {
     use Translatable;
     use SoftDeletes;
-    protected $fillable=['title','description','image_group','banner_group','deleted_at'];
+    protected $fillable=['title','image_group','banner_group','deleted_at'];
 }

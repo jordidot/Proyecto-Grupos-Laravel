@@ -16,7 +16,6 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
             $table->string('image_group');
             $table->string('banner_group');
             $table->timestamps();
@@ -31,8 +30,8 @@ class CreateGroupsTable extends Migration
         });
         Schema::create('groups_favorites', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
             $table->integer('group_id');
+            $table->integer('user_id');
             $table->timestamps();
             $table->softDeletes();
         });
