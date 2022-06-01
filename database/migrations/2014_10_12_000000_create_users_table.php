@@ -19,8 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('is_admin');
-            $table->string('is_group');
+            $table->integer('is_admin');
+            $table->integer('is_group');
+            $table->string('group_id');
             $table->string('is_active');
             $table->rememberToken();
             $table->timestamps();
@@ -33,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('city');
             $table->string('image_user');
-            $table->string('image_banner');
+            $table->string('image_banner', null);
             $table->timestamps();
             $table->softDeletes();
         });
