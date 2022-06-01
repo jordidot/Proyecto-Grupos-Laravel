@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConcertsTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,28 @@ class CreateConcertsTable extends Migration
      */
     public function up()
     {
-        Schema::create('concerts', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->integer('group_id');
-            $table->string('schedule');
-            $table->string('date');
-            $table->string('city');
             $table->string('title');
             $table->string('description');
-            $table->string('image');
+            $table->string('image_group');
+            $table->string('banner_group');
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::create('concerts_translations', function (Blueprint $table) {
+        Schema::create('groups_translations', function (Blueprint $table) {
             $table->id();
-            $table->integer('concert_id');
+            $table->integer('group_id');
             $table->string('locale');
-            $table->string('title');
             $table->string('description');
             $table->timestamps();
+        });
+        Schema::create('groups_favorites', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id');
+            $table->integer('group_id');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -42,6 +45,6 @@ class CreateConcertsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('concerts');
+        Schema::dropIfExists('groups');
     }
 }
