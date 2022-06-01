@@ -19,8 +19,6 @@ class CreateConcertsTable extends Migration
             $table->string('schedule');
             $table->string('date');
             $table->string('city');
-            $table->string('title');
-            $table->string('description');
             $table->string('image');
             $table->timestamps();
             $table->softDeletes();
@@ -33,8 +31,13 @@ class CreateConcertsTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
+        Schema::create('concerts_groups', function (Blueprint $table) {
+            $table->id();
+            $table->integer('group_id');
+            $table->string('concert_id');
+            $table->timestamps();
+        });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -43,5 +46,7 @@ class CreateConcertsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('concerts');
+        Schema::dropIfExists('concerts_translations');
+        Schema::dropIfExists('concerts_groups');
     }
 }

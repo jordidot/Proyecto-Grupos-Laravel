@@ -19,10 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->integer('is_admin');
             $table->integer('is_group');
             $table->string('group_id');
-            $table->string('is_active');
+            $table->integer('is_admin');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
@@ -34,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('city');
             $table->string('image_user');
-            $table->string('image_banner', null);
+            $table->string('image_banner');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -43,7 +42,6 @@ class CreateUsersTable extends Migration
             $table->integer('user_id');
             $table->string('concert_id');
             $table->string('comment');
-            $table->string('city');
             $table->timestamps();
         });
     }
@@ -56,5 +54,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('users_profiles');
+        Schema::dropIfExists('users_comments');
     }
 }
