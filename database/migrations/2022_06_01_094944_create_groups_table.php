@@ -21,7 +21,7 @@ class CreateGroupsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::create('groups_translations', function (Blueprint $table) {
+        Schema::create('group_translations', function (Blueprint $table) {
             $table->id();
             $table->integer('group_id');
             $table->string('locale');

@@ -23,7 +23,7 @@ class CreateConcertsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::create('concerts_translations', function (Blueprint $table) {
+        Schema::create('concert_translations', function (Blueprint $table) {
             $table->id();
             $table->integer('concert_id');
             $table->string('locale');
