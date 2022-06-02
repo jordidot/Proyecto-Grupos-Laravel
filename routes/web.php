@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','SectionsController@home')->name('home');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 });

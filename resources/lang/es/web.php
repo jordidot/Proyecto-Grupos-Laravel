@@ -18,6 +18,7 @@
         'see_more_button'=>'Ver más',
         'see_all_button'=>'Ver todos',
         'our_groups'=>'Nuestros grupos',
+        'followers'=>'Seguidores',
         'copyright'=>'Copyright ©',
         'privacity'=>'Privacidad',
         'terms_conditions'=>'Términos y condiciones',
@@ -41,5 +42,12 @@
         'group_title_popup'=>'Como grupo',
         'register_user_title'=>"Registro de usuario",
         'register_group_title'=>'Registro del grupo',
+        'register_option'=>'Com quieres registrarte?',
+        'title_image_home'=>'La fiesta ha vuelto a lo grande.',
+        'description_image_home'=>'Reserva tus entradas pichando en el enlace, para pasartelo en grande.',
+        'button_image_buy'=>'Comprar entradas',
+        'button_image_booking'=>'Reservar entradas',
+        'title_join_up'=>'ÚNETE A NOSOTROS PARA DISFRUTAR DE MÁS VENTAJAS',
+        'description_join_up'=>'Podrás comentar en los posts de los conciertos, también una nueva funcionalidad de guardar tu grupo favorito para ver los nuevos conciertos.'
     ];
 ?>

@@ -35,11 +35,19 @@
         'profile'=>'El meu perfil',
         'edit_profile'=>'Editar perfil',
         'support_button'=>'Suport',
+        'followers'=>'Seguidors:',
         'close_session_button'=>'Tancar sessió',
         'identificate'=>'Identificat',
         'user_title_popup'=>'Com usuari',
         'group_title_popup'=>'Com grup',
         'register_user_title'=>"Registre d'usuari",
         'register_group_title'=>'Registre del grup',
+        'register_option'=>'Com vols registrarte?',
+        'title_image_home'=>'La festa ha tornat en gran.',
+        'description_image_home'=>"Reserva les entrades pitjant a l'enllaç, per passar-t'ho d'allò més bé.",
+        'button_image_buy'=>'Comprar entrades',
+        'button_image_booking'=>'Reservar entrades',
+        'title_join_up'=>'UNEIX-TE A NOSALTRES PER GAUDIR DE MÉS AVANTATGES',
+        'description_join_up'=>'Podràs comentar als posts dels concerts, també una nova funcionalitat de guardar el teu grup favorit per veure els nous concerts.'
     ];
 ?>
