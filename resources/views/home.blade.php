@@ -108,8 +108,8 @@
                     <h3>{{__('web.register_option')}}</h3>
                 </div>
                 <div class="btn-group">
-                    <a href="">{{__('web.user_title_popup')}}</a>
-                    <a href="">{{__('web.group_title_popup')}}</a>
+                    <a href="{{route('login')}}">{{__('web.login')}}</a>
+                    <a href="{{route('register')}}">{{__('web.register')}}</a>
                 </div>
             </div>
         </div>
