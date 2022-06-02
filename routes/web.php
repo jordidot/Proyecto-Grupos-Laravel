@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-Route::get('/','SectionsController@home')->name('home');
-Auth::routes();
+
+    // Gestion de grupos
+    Route::get('/gestion-grupos','GroupController@index')->name("homeGestionGroups");
+    Route::get('/','SectionsController@home')->name('home');
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('homeAdmin');
 });
