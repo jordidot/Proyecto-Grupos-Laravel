@@ -16,6 +16,7 @@
     <!-- Styles -->
 
 </head>
+
 <body>
 
 
@@ -46,36 +47,16 @@
                         </div>
                     </form>
                 </div>
-                @guest
                 <div class="button-login-register">
                     <a href="#" class="openpopup">
                         <i class="fas fa-user-circle"></i>
-                            {{__('web.login')}}/{{__('web.register')}}
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     </a>
                 </div>
-                @else
-                <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    
-                                    @if (Auth::user()->is_admin == 1)
-                                        <a href="{{Route('homeGestionGroups')}}" class="dropdown-item">Gestion de grupos</a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                @endif
             </div>
 
         </div>
