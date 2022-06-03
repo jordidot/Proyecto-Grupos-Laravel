@@ -44,12 +44,6 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -58,6 +52,19 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Selecione un rol:</label>
+
+                            <div class="col-md-6">
+                                <select class="selectpicker form-control" name="rol">
+                                    <option selected value="1">Grupo</option>
+                                    <option value="0">Usuario</option>
+                                  </select>
+                                  
+                                  
                             </div>
                         </div>
 

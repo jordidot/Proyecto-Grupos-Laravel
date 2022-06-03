@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Group;
-use App\user;
 
-class GroupController extends Controller
+class CreateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $userGroup = User::where('is_group',1)->get();
-        return view('admin.gestion.groups.index') 
-        -> with('userGroup',$userGroup);
+        //
     }
 
     /**
@@ -27,8 +23,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-    
-        
+        //
     }
 
     /**
