@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{__('web.title_header')}}</title>
+    <title>{{__('web.title_header')}} - {{__('web.title_home')}}</title>
     <link rel="icon" type="image/x-icon" href="{{asset('images/iconomusica.png')}}">
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/762a7ec47b.js" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
                     <a class="menu-item-actived" href="">{{__('web.title_home')}}</a>
                     <a href="">{{__('web.title_concerts')}}</a>
                     <a href="">{{__('web.title_groups')}}</a>
-                    <a href="">{{__('web.title_about_us')}}</a>
+                    <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                 </div>
             </div>
 

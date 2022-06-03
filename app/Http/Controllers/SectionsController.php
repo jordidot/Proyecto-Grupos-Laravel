@@ -22,6 +22,8 @@ class SectionsController extends Controller
         ->with('groupsfavorites', $groupsfavorites);
     }
     public function aboutus(){
-        return view('aboutus');
+        $users = User::get();
+        return view('aboutus')
+        ->with('users', $users);
     }
 }
