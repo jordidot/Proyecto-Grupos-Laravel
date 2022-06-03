@@ -593,6 +593,17 @@ html {
   background-attachment: fixed;
   background-size: cover;
 }
+.header-container-aboutus {
+  width: 100%;
+  height: 700px;
+  min-height: 800px;
+  background-color: #1a1a1a;
+  background-image: url(../images/banner-header.jpg);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 
 .header-container .conatiner-content-header {
   width: 100%;
