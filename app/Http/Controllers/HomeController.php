@@ -32,7 +32,7 @@ class HomeController extends Controller
         $groupsfavorites=GroupFavorite::get();
         $concerts=Concert::limit(6)->get();
         $usersprofiles=UserProfile::get();
-        return view('home')
+        return view('hom')
         ->with('usersprofiles', $usersprofiles)
         ->with('groups', $groups)
         ->with('concerts', $concerts)
