@@ -24,6 +24,4 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('admin/gestion-grupos','GroupController@index')->name("homeGestionGroups");
     // Crear Grupo
     Route::resource('groups', 'CreateGroupController');
-
-
 });

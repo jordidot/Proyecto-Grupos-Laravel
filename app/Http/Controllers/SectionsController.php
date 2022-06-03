@@ -16,6 +16,7 @@ class SectionsController extends Controller
         $concerts=Concert::limit(6)->get();
         $usersprofiles = UserProfile::get();
         return view('home')
+        ->with('usersprofiles', $usersprofiles)
         ->with('groups', $groups)
         ->with('concerts', $concerts)
         ->with('usersprofiles',$usersprofiles)
