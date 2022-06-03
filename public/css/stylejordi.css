@@ -1,0 +1,37 @@
+.lol{
+    position:relative;
+    float:left;
+    top: 5px;
+    color:white;
+    left:5px;
+  }
+  .lol a{
+      text-decoration:none;
+      color:white;
+      font-weight: bold;
+
+  }
+  .lol a:hover{
+      color:#951388;
+  }
+  .logout{
+      margin:10px;
+      text-align:center;
+      
+  }
+  .logout a{
+    color:white;
+    font-weight: bold;
+    
+  }
+  .user_name{
+      margin:10px;
+      
+  }
+  .user_name img{
+      width:30px;
+      margin:0 0 0 5px;
+      height:30px;
+      border:#951388 solid 1px;
+
+  }

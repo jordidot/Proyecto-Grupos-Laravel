@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('css/stylejordi.css')}}">
     <!-- Styles -->
 
 </head>
@@ -21,17 +22,17 @@
 
     <!-- Navbar -->
     <div class="navbar-container">
-        <!-- NavBar Desktop -->
-        <div class="row-navbar-desktop">
-
-            <div class="col-logo-menu">
-                <div class="">
+    <div class="lol">
                     @guest
                     <a href="{{url('/es')}}">ES</a>/<a href="{{url('/ca')}}">CA</a>/<a href="{{url('/en')}}">EN</a>
                     @else
                     <a href="{{url('/es')}}">ES</a>/<a href="{{url('/ca')}}">CA</a>/<a href="{{url('/en')}}">EN</a>
                     @endif
                 </div>
+        <!-- NavBar Desktop -->
+        <div class="row-navbar-desktop">
+
+            <div class="col-logo-menu">
                 <div class="logo-navbar-desktop">
                     <img width="50" src="{{asset('images/concierto.png')}}" alt="Logotype">
                 </div>
@@ -62,21 +63,22 @@
                 </div>
                 @else
                 <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <div class="user_name">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::user()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @foreach($usersprofiles as $userprofile)
+                                    <img src="{{asset($userprofile->image_user)}}">
+                                @endforeach
                                 </a>
+                                </div>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    
-                                    @if (Auth::user()->is_admin == 1)
-                                        <a href="{{Route('homeGestionGroups')}}" class="dropdown-item">Gestion de grupos</a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
+                                    <div class="logout">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('web.logout') }}
+                                        </a>
+                                    </div>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
