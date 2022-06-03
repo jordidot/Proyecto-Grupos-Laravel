@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\City;
-use App\Models\UserProfile;
 
 class CreateGroupController extends Controller
 {
@@ -92,14 +91,13 @@ class CreateGroupController extends Controller
             $moveFile = move_uploaded_file($_FILES["imgProfile"]["tmp_name"],$ruta);
 
             $data = [
-                "user_id"    => Auth::User()->id,
                 "first_name" => $request->firstName,
                 "last_name"  => $request->lastName,
                 "city"       => $request->selectCity,
                 "image_user" => $rutaddbb
             ];
 
-            $group = UserProfile::create($data);
+            $group = User::create($data);
             return redirect() -> route('groups.index');
            if($moveFile)
            {
