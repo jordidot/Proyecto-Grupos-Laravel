@@ -14,6 +14,8 @@
         'es_navbar'=>'ES',
         'ca_navbar'=>'CA',
         'en_navbar'=>'EN',
+        'user'=>'Usuari/correu:',
+        'password'=>'Contrasenya:',
         'found_concert'=>'Buscar concert',
         'see_more_button'=>'Veure més',
         'see_all_button'=>'Veure tots',
