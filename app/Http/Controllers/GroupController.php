@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Group;
 use App\user;
-
+use App\Models\UserProfile;
 class GroupController extends Controller
 {
-    /**
+    /*
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $userGroup = User::where('is_group',1)->get();
+        $userGroup = UserProfile::select('users_profiles.*', 'cities.name', 'users.name')
+        -> join('users','users.id','=','users_profiles.user_id')
+        -> join('cities','cities.id','=','users_profiles.user_id')
+        -> get();
         return view('admin.gestion.groups.index') 
         -> with('userGroup',$userGroup);
     }
