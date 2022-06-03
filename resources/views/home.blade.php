@@ -68,9 +68,13 @@
                 <li class="nav-item dropdown">
                                 <div class="user_name">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @foreach($usersprofiles as $userprofile)
-                                        <img src="{{asset($userprofile->image_user)}}">
-                                    @endforeach
+                                    @if(count($usersprofiles)==0)
+                                            <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
+                                    @else
+                                        @foreach($usersprofiles as $userprofile)
+                                            <img style="border-radius:30px;" src="{{asset($userprofile->image_user)}}">
+                                        @endforeach
+                                    @endif
                                 </a>
                                 </div>
 
