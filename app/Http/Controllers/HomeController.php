@@ -16,6 +16,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -29,12 +30,12 @@ class HomeController extends Controller
     public function index()
     {
         $groups=Group::limit(6)->get();
-        $groupsfavorites=GroupFavorite::get();
-        $concerts=Concert::limit(6)->get();
-        $usersprofiles=UserProfile::get();
-        return view('home')
-        ->with('usersprofiles', $usersprofiles)
-        ->with('groups', $groups)
+        $groupsfavorites=GroupFavorite::get();         
+        $concerts=Concert::limit(6)->get();         
+        $usersprofiles=UserProfile::get();         
+        return view('home')         
+        ->with('usersprofiles', $usersprofiles)         
+        ->with('groups', $groups)         
         ->with('concerts', $concerts)
         ->with('groupsfavorites', $groupsfavorites);
     }

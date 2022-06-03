@@ -88,7 +88,7 @@ class CreateGroupController extends Controller
             $nom = basename($_FILES["imgProfile"]["name"]); 
             $typefile = strtolower(pathinfo($nom,PATHINFO_EXTENSION));
             $ruta = public_path('images/users/'.$nom);
-            
+            $rutaddbb =  'images/users/'.$nom;
             $moveFile = move_uploaded_file($_FILES["imgProfile"]["tmp_name"],$ruta);
 
             $data = [
@@ -96,7 +96,7 @@ class CreateGroupController extends Controller
                 "first_name" => $request->firstName,
                 "last_name"  => $request->lastName,
                 "city"       => $request->selectCity,
-                "image_user" => $ruta
+                "image_user" => $rutaddbb
             ];
 
             $group = UserProfile::create($data);

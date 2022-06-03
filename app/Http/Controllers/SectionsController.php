@@ -14,11 +14,12 @@ class SectionsController extends Controller
         $groups=Group::limit(6)->get();
         $groupsfavorites=GroupFavorite::get();
         $concerts=Concert::limit(6)->get();
-        $usersprofiles=UserProfile::get();
+        $usersprofiles = UserProfile::get();
         return view('home')
         ->with('usersprofiles', $usersprofiles)
         ->with('groups', $groups)
         ->with('concerts', $concerts)
+        ->with('usersprofiles',$usersprofiles)
         ->with('groupsfavorites', $groupsfavorites);
     }
 }
