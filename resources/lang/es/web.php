@@ -21,6 +21,8 @@
         'followers'=>'Seguidores',
         'copyright'=>'Copyright ©',
         'privacity'=>'Privacidad',
+        'user'=>'Usuario/correo:',
+        'password'=>'Contraseña:',
         'terms_conditions'=>'Términos y condiciones',
         'legal_warning'=>'Avíso legal',
         'sign_title'=>'Cartel',

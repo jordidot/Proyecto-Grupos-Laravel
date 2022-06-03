@@ -1,0 +1,47 @@
+ body {
+     background-color: black;
+ }
+
+ .fuente {
+     color: white;
+     font-family: Lato;
+ }
+ .boton {
+     background-color: black;
+     border-radius: 100px;
+     border-color: white;
+     padding: 0px 100px;
+ }
+ .fuente2 {
+     color: #951388;
+ }
+ .formulario {
+     background-color: white;
+     border-radius: 100px;
+     border: 2px solid #951388;
+ }
+
+ .me-1 {
+    margin-right: 100px !important;
+  }
+  .pe-1{
+      padding: 10px 50px !important;
+  }
+ .activao {
+    background-color: #951388;
+    border-color: black;
+}
+.activao:hover {
+    background-color: #951388;
+    border-color: black;
+}
+.noactivao {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+.noactivao:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
