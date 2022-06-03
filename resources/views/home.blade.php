@@ -25,12 +25,19 @@
         <div class="row-navbar-desktop">
 
             <div class="col-logo-menu">
+                <div class="">
+                    @guest
+                    <a href="{{url('/es')}}">ES</a>/<a href="{{url('/ca')}}">CA</a>/<a href="{{url('/en')}}">EN</a>
+                    @else
+                    <a href="{{url('/es')}}">ES</a>/<a href="{{url('/ca')}}">CA</a>/<a href="{{url('/en')}}">EN</a>
+                    @endif
+                </div>
                 <div class="logo-navbar-desktop">
                     <img width="50" src="{{asset('images/concierto.png')}}" alt="Logotype">
                 </div>
 
                 <div class="menu-navbar-desktop">
-                    <a class="menu-item-actived" href="">Inicio</a>
+                    <a class="menu-item-actived" href="">{{__('web.title_home')}}</a>
                     <a href="">{{__('web.title_concerts')}}</a>
                     <a href="">{{__('web.title_groups')}}</a>
                     <a href="">{{__('web.title_about_us')}}</a>

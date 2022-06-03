@@ -33,7 +33,6 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('city');
             $table->string('image_user');
-            $table->string('image_banner');
             $table->timestamps();
             $table->softDeletes();
         });

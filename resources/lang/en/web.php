@@ -10,6 +10,8 @@
         'title_about_us'=>'About us',
         'title_groups'=>'Groups',
         'login'=>'Login',
+        'user'=>'User/email:',
+        'password'=>'Password:',
         'register'=>'Register',
         'es_navbar'=>'ES',
         'ca_navbar'=>'CA',
