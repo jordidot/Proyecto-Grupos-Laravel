@@ -24,5 +24,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('groups', 'CreateGroupController');
 
     // Buscador
-    Route::post('/search','SectionsController@search') -> name('search');
+    Route::get('/search','SectionsController@search') -> name('search');
 });

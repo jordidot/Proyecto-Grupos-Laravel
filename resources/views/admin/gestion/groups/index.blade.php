@@ -14,9 +14,11 @@
                     
                     @if (count($userGroup) > 0)
                     @foreach ($userGroup as $grupos)
-                        {{ $grupos->name}}
-                        {{ $grupos-> cityName}}
+                        {{$grupos->name}}
                     @endforeach
+                    
+                        {{var_dump('userGroupCity')}}
+                    
                         @else
                         No se ha encontrado ningun grupo
                     @endif

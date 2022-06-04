@@ -28,9 +28,10 @@ class SectionsController extends Controller
             return view('sections.search')
             -> with('query',$query);
         }
-        else
+
+        if(is_null($request->searchconcert) || $request->searchconcert === ' ')
         {
-            return redirect()->route('home');
+            return view('sections.home');
         }
     }
 }
