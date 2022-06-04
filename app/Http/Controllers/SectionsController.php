@@ -28,9 +28,14 @@ class SectionsController extends Controller
             return view('sections.search')
             -> with('query',$query);
         }
-        else
+        else 
         {
-            return redirect()->route('home');
+            return view('home');
         }
+    }
+    public function aboutus(){
+        $users=User::get();
+        return view('sections.aboutus')
+        ->with('users', $users);
     }
 }
