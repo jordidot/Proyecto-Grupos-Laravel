@@ -78,7 +78,16 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=User::find($id);
+        $data->name=$request->name;
+        $data->password=$request->newpassword;
+        $data->first_name=$request->first_name;
+        $data->last_name=$request->last_name;
+        $data->city=$request->city;
+        $data->email=$request->email;
+        $data->rol=$request->rol;
+        $data->save();
+        return redirect('/profiles/$id/edit');
     }
 
     /**
