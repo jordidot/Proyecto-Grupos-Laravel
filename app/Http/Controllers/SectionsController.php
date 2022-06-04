@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Group;
 use App\Models\GroupFavorite;
 use App\Models\Concert;
-use App\Models\UserProfile;
+use App\User;
 
 class SectionsController extends Controller
 {
@@ -14,14 +14,20 @@ class SectionsController extends Controller
         $groups=Group::limit(6)->get();
         $groupsfavorites=GroupFavorite::get();
         $concerts=Concert::limit(6)->get();
+<<<<<<< HEAD
         $usersprofiles = UserProfile::get();
         return view('sections.home')
         ->with('usersprofiles', $usersprofiles)
+=======
+        $users = User::get();
+        return view('home')
+        ->with('users', $users)
+>>>>>>> main
         ->with('groups', $groups)
         ->with('concerts', $concerts)
-        ->with('usersprofiles',$usersprofiles)
         ->with('groupsfavorites', $groupsfavorites);
     }
+<<<<<<< HEAD
 
     public function search(Request $request)
     {
@@ -35,5 +41,11 @@ class SectionsController extends Controller
         {
             return redirect()->route('home');
         }
+=======
+    public function aboutus(){
+        $users = User::get();
+        return view('aboutus')
+        ->with('users', $users);
+>>>>>>> main
     }
 }

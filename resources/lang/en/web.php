@@ -1,5 +1,6 @@
 <?php 
     return[
+        'developers_title'=>'OUR DEVELOPERS',
         'send_button'=>'Send',
         'create_button'=>'Create',
         'modificate_button'=>'Modificate',

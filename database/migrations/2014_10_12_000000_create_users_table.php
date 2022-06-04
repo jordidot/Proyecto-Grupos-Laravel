@@ -22,17 +22,11 @@ class CreateUsersTable extends Migration
             $table->integer('is_group')->default(0);
             $table->string('group_id')->default(0);
             $table->integer('is_admin')->default(0);
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('city')->nullable();
+            $table->string('image_user')->nullable();
             $table->rememberToken();
-            $table->timestamps();
-            $table->softDeletes();
-        });
-        Schema::create('users_profiles', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('city');
-            $table->string('image_user');
             $table->timestamps();
             $table->softDeletes();
         });

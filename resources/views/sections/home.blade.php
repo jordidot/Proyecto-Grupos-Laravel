@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{__('web.title_header')}}</title>
+    <title>{{__('web.title_header')}} - {{__('web.title_home')}}</title>
     <link rel="icon" type="image/x-icon" href="{{asset('images/iconomusica.png')}}">
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/762a7ec47b.js" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
                     <a class="menu-item-actived" href="">{{__('web.title_home')}}</a>
                     <a href="">{{__('web.title_concerts')}}</a>
                     <a href="">{{__('web.title_groups')}}</a>
-                    <a href="">{{__('web.title_about_us')}}</a>
+                    <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                 </div>
             </div>
 
@@ -66,7 +66,22 @@
                     </a>
                 </div>
                 @else
+<<<<<<< HEAD:resources/views/sections/home.blade.php
                     <div class="info-user" style="margin-left: 10px;">
+=======
+                <li class="nav-item dropdown">
+                                <div class="user_name">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @foreach($users as $user)
+                                        @if(is_null($user->image_user))
+                                                <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
+                                            @else
+                                                <img style="border-radius:30px;" src="{{asset($user->image_user)}}">
+                                        @endif
+                                    @endforeach
+                                </a>
+                                </div>
+>>>>>>> main:resources/views/home.blade.php
 
                         <div class="profile-user">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

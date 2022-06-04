@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
-use App\user;
-use App\Models\UserProfile;
+use App\User;
 class GroupController extends Controller
 {
     /*
@@ -17,9 +16,14 @@ class GroupController extends Controller
 
     public function index()
     {
+<<<<<<< HEAD
         $userGroup = UserProfile::select('users_profiles.*', 'cities.name AS cityName', 'users.name')
         -> join('users','users.id','=','users_profiles.user_id')
         -> join('cities','cities.id','=','users_profiles.user_id')
+=======
+        $userGroup = User::select('users.*', 'cities.name', 'users.name')
+        -> join('cities','cities.id','=','users.id')
+>>>>>>> main
         -> get();
         return view('admin.gestion.groups.index') 
         -> with('userGroup',$userGroup);
