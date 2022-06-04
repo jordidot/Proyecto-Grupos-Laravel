@@ -17,7 +17,7 @@ class GroupController extends Controller
 
     public function index()
     {
-        $userGroup = UserProfile::select('users_profiles.*', 'cities.name', 'users.name')
+        $userGroup = UserProfile::select('users_profiles.*', 'cities.name AS cityName', 'users.name')
         -> join('users','users.id','=','users_profiles.user_id')
         -> join('cities','cities.id','=','users_profiles.user_id')
         -> get();

@@ -12,8 +12,8 @@
     <!-- FontAwesome -->
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
-    <link rel="stylesheet" href="{{asset('css/stylejordi.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/styles.css')}}?v=echo time();">
+    <link rel="stylesheet" href="{{asset('/css/stylejordi.css')}}">
     <!-- Styles -->
 
 </head>
@@ -49,9 +49,10 @@
 
             <div class="col-search-btn-login-register">
                 <div class="search-navbar-desktop">
-                    <form action=".index.php">
+                    <form action="{{route('search')}}" method="POST">
+                        @csrf
                         <div class="form-icon">
-                            <input type="text" name="search-concert" placeholder="{{__('web.found_concert')}}...">
+                            <input type="text" name="searchconcert" placeholder="{{__('web.found_concert')}}...">
                             <button type="submit"> <i class="fas fa-search"></i></button>
                         </div>
                     </form>
@@ -59,38 +60,36 @@
                 
                 @guest
                 <div class="button-login-register">
-                    <a href="#" class="openpopup">
+                    <a href="#" class="openpopup" style="font-size: 11px;">
                         <i class="fas fa-user-circle"></i>
                             {{__('web.login')}}/{{__('web.register')}}
                     </a>
                 </div>
                 @else
-                <li class="nav-item dropdown">
-                                <div class="user_name">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if(count($usersprofiles)==0)
-                                            <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
-                                    @else
-                                        @foreach($usersprofiles as $userprofile)
-                                            <img style="border-radius:30px;" src="{{asset($userprofile->image_user)}}">
-                                        @endforeach
-                                    @endif
-                                </a>
-                                </div>
+                    <div class="info-user" style="margin-left: 10px;">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <div class="logout">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('web.logout') }}
-                                        </a>
-                                    </div>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                        <div class="profile-user">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(count($usersprofiles) === 0)
+                                        <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
+                                @else
+                                    @foreach($usersprofiles as $userprofile)
+                                        <img style="border-radius:50px; width:40px;" src="{{asset($userprofile->image_user)}}">
+                                    @endforeach
+                                @endif
+                            </a>
+                        </div>
+
+                        <div class="btn-logout">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                        {{ __('web.logout') }}
+                            </a>
+                        </div>
+
+
+                    </div>
                 @endif
 
 
@@ -118,12 +117,39 @@
                     <a href="">{{__('web.title_about_us')}}</a>
                 </div>
 
+                @guest
                 <div class="button-login-register">
-                    <a href="#" class="openpopup">
+                    <a href="#" class="openpopup" style="font-size: 11px;">
                         <i class="fas fa-user-circle"></i>
-                        {{__('web.login')}}/{{__('web.register')}}
+                            {{__('web.login')}}/{{__('web.register')}}
                     </a>
                 </div>
+                @else
+                    <div class="info-user" style="margin-left: 10px;">
+
+                        <div class="profile-user">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(count($usersprofiles) === 0)
+                                        <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
+                                @else
+                                    @foreach($usersprofiles as $userprofile)
+                                        <img style="border-radius:50px; width:40px;" src="{{asset($userprofile->image_user)}}">
+                                    @endforeach
+                                @endif
+                            </a>
+                        </div>
+
+                        <div class="btn-logout">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                        {{ __('web.logout') }}
+                            </a>
+                        </div>
+
+
+                    </div>
+                @endif
                 
             </div>
 
