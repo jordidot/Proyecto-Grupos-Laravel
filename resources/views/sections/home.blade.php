@@ -73,9 +73,9 @@
                                 @if(Auth::User()-> image_user === NULL)
                                         <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
-                                    @foreach($usersprofiles as $userprofile)
-                                        <img style="border-radius:50px; width:40px;" src="{{asset($userprofile->image_user)}}">
-                                    @endforeach
+                                    
+                                        <img style="border-radius:50px; width:40px;" src="{{asset(Auth::User()-> image_user)}}">
+
                                 @endif
                             </a>
                         </div>
@@ -129,12 +129,12 @@
 
                         <div class="profile-user">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                @if(count($usersprofiles) === 0)
+                                @if(Auth::User()-> image_user === NULL)
                                         <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
-                                    @foreach($usersprofiles as $userprofile)
-                                        <img style="border-radius:50px; width:40px;" src="{{asset($userprofile->image_user)}}">
-                                    @endforeach
+                                    
+                                        <img style="border-radius:50px; width:40px;" src="{{asset(Auth::User()-> image_user)}}">
+                                    
                                 @endif
                             </a>
                         </div>
