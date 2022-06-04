@@ -14,20 +14,11 @@ class SectionsController extends Controller
         $groups=Group::limit(6)->get();
         $groupsfavorites=GroupFavorite::get();
         $concerts=Concert::limit(6)->get();
-<<<<<<< HEAD
-        $usersprofiles = UserProfile::get();
         return view('sections.home')
-        ->with('usersprofiles', $usersprofiles)
-=======
-        $users = User::get();
-        return view('home')
-        ->with('users', $users)
->>>>>>> main
         ->with('groups', $groups)
         ->with('concerts', $concerts)
         ->with('groupsfavorites', $groupsfavorites);
     }
-<<<<<<< HEAD
 
     public function search(Request $request)
     {
@@ -41,11 +32,5 @@ class SectionsController extends Controller
         {
             return redirect()->route('home');
         }
-=======
-    public function aboutus(){
-        $users = User::get();
-        return view('aboutus')
-        ->with('users', $users);
->>>>>>> main
     }
 }

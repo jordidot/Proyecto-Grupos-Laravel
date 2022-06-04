@@ -29,14 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $groups=Group::limit(6)->get();
-        $groupsfavorites=GroupFavorite::get();         
-        $concerts=Concert::limit(6)->get();         
-        $users=User::get();         
-        return view('home')         
-        ->with('users', $users)         
-        ->with('groups', $groups)         
-        ->with('concerts', $concerts)
-        ->with('groupsfavorites', $groupsfavorites);
+        // $groups=Group::limit(6)->get();
+        // $groupsfavorites=GroupFavorite::get();         
+        // $concerts=Concert::limit(6)->get();         
+        // $users=User::get();         
+        return view('hom');
     }
 }
