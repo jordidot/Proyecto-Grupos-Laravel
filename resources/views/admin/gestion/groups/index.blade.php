@@ -12,10 +12,10 @@
 
                 <div class="card-body">
                     
-                    @if (count($userGroup) > 0)
-                    @foreach ($userGroup as $grupos)
-                        {{ $grupos->name}}
-                        {{ $grupos-> cityName}}
+                    @if (count($users) > 0)
+                    @foreach ($users as $user)
+                        {{ $user->name}}
+                        {{ $user->city}}
                     @endforeach
                         @else
                         No se ha encontrado ningun grupo

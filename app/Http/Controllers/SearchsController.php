@@ -4,26 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
-use App\User;
-use App\Models\City;
-class GroupController extends Controller
+use App\Models\Concert;
+
+class SearchsController extends Controller
 {
-    /*
-     *
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $users=User::get();
-        $cities=City::get();
-        $groups=Group::get();
-        return view('admin.gestion.groups.index')
-        -> with('users',$users)
-        -> with('cities',$cities) 
-        -> with('groups',$groups);
+        
+        return view('search.index');
+
     }
 
     /**
@@ -33,8 +27,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-    
-        
+        //
     }
 
     /**
