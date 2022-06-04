@@ -17,13 +17,7 @@ class GroupController extends Controller
 
     public function index()
     {
-        $users=User::get();
-        $cities=City::get();
-        $groups=Group::get();
-        return view('admin.gestion.groups.index')
-        -> with('users',$users)
-        -> with('cities',$cities) 
-        -> with('groups',$groups);
+        
     }
 
     /**
@@ -33,8 +27,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-    
-        
+        //
     }
 
     /**
@@ -56,7 +49,7 @@ class GroupController extends Controller
      */
     public function show($id)
     {
-        //
+    
     }
 
     /**
@@ -67,7 +60,13 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users=User::get();
+        $cities=City::get();
+        $groups=Group::get();
+        return view('profile.edit')
+        -> with('users',$users)
+        -> with('cities',$cities) 
+        -> with('groups',$groups);
     }
 
     /**
