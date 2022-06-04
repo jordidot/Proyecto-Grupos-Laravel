@@ -14,10 +14,10 @@
 <body>
     <header class="header-container-aboutus">
         <div class="title-header-aboutus">
-            <h2>{{__('web.title_about_us')}}</h2>
+        <h2>{{__('web.title_about_us')}}</h2>
         </div>
         <div class="title-header-aboutus-2">
-        <h2>/</h2>
+        <a style="text-decoration:none;color:white;" href="{{route('home')}}"><h2>/</h2></a>
         </div>
         <div class="title-header-aboutus-3">
         <h2>
