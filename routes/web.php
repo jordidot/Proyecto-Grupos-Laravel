@@ -20,10 +20,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('/aboutus', 'SectionsController@aboutus')->name('aboutus');
     Route::get('/home', 'HomeController@index')->name('homeAdmin');
     // Gestion de grupos
-    Route::get('admin/gestion-grupos','GroupController@index')->name("homeGestionGroups");
+    Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']]);
     // Crear Grupo
     Route::resource('groups', 'CreateGroupController');
-
     // Buscador
     Route::post('/search','SectionsController@search') -> name('search');
 });

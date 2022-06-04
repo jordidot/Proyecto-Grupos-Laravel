@@ -69,7 +69,7 @@
                     <div class="info-user" style="margin-left: 10px;">
 
                         <div class="profile-user">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{route('profiles.edit',['profile'=>Auth::User()->id])}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(Auth::User()-> image_user === NULL)
                                         <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
@@ -118,7 +118,7 @@
                     <div class="info-user" style="margin-left: 10px;">
 
                         <div class="profile-user">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{route('profiles.edit',['profile'=>Auth::User()->id])}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(Auth::User()-> image_user === NULL)
                                         <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
