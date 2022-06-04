@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="mt-2">{{__('web.edit_profile_title')}}</h3>
+                    <h3 align="center" class="mt-2">{{__('web.edit_profile_title')}}</h3>
                 </div>
 
                 <div class="card-body">
@@ -20,9 +20,16 @@
                                 <td>{!!Form::text('name',$user->name,[])!!}</td>
                             </tr>
                             <tr>
-                            <td>
-                                <label for="password">{{__('web.actual_password_profile')}}</label></td>
-                                <td>{!!Form::password('password',null,[])!!}</td>
+                                <td><label for="actualpassword">{{__('web.actual_password_profile')}}</label></td>
+                                <td>{!!Form::password('actualpassword',null,[])!!}</td>
+                            </tr>
+                            <tr>
+                                <td><label for="newpassword">{{__('web.repeat_password_profile')}}</label></td>
+                                <td>{!!Form::password('newpassword',null,[])!!}</td>
+                            </tr>
+                            <tr>
+                                <td><label for="first_name">{{__('web.first_name_profile')}}</label></td>
+                                <td>{!!Form::text('first_name',$user->first_name,[])!!}</td>
                             </tr>
                         </table>
                     {!!Form::close()!!}
