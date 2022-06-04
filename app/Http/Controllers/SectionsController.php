@@ -22,15 +22,16 @@ class SectionsController extends Controller
 
     public function search(Request $request)
     {
+
         if($request->searchconcert)
         {
             $query = $request->searchconcert;
             return view('sections.search')
             -> with('query',$query);
         }
-        else 
+        elseif (count(Group::get())==0)
         {
-            return view('home');
+            return view('sections.home');
         }
     }
     public function aboutus(){
