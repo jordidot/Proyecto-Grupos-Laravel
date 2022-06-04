@@ -205,6 +205,22 @@ html{
     }
 }
 
+// Btn info user
+
+.info-user
+{
+    display: flex;
+    align-items: center;
+    a
+    {
+        &:last-child
+        {
+            color: white;
+            margin-left: 15px;
+        }
+    }
+}
+
 // Responoisve navbar
 
 @media screen and (max-width: 1200px){

@@ -14,16 +14,23 @@ class SectionsController extends Controller
         $groups=Group::limit(6)->get();
         $groupsfavorites=GroupFavorite::get();
         $concerts=Concert::limit(6)->get();
-        $users = User::get();
-        return view('home')
-        ->with('users', $users)
+        return view('sections.home')
         ->with('groups', $groups)
         ->with('concerts', $concerts)
         ->with('groupsfavorites', $groupsfavorites);
     }
-    public function aboutus(){
-        $users = User::get();
-        return view('aboutus')
-        ->with('users', $users);
+
+    public function search(Request $request)
+    {
+        if($request->searchconcert)
+        {
+            $query = $request->searchconcert;
+            return view('sections.search')
+            -> with('query',$query);
+        }
+        else
+        {
+            return redirect()->route('home');
+        }
     }
 }
