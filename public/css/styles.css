@@ -234,6 +234,20 @@ html {
   -o-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
 }
 
+.info-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info-user a:last-child {
+  color: white;
+  margin-left: 15px;
+}
+
 @media screen and (max-width: 1200px) {
   .row-navbar-desktop {
     width: 90%;
