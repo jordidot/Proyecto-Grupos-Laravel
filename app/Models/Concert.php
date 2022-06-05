@@ -11,4 +11,5 @@ class Concert extends Model
     protected $fillable=['group_id', 'schedule', 'date','city', 'image', 'deleted_at'];
     use SoftDeletes;
     use Translatable;
+    protected $translatedAttributes = ['title','description'];
 }

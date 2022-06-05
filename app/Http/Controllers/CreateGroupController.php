@@ -75,11 +75,7 @@ class CreateGroupController extends Controller
 
         if($request->hasFile('imgProfile'))
         {
-            // Verificacion de imagen
-            // request()->validate
-            // ([
-            //     'imgProfile' => 'image|mimes:jpeg.jpg,png'
-            // ]);
+           
 
             // Guardar la img en una variable
             $imgProfile = $request->imgProfile;
@@ -99,14 +95,7 @@ class CreateGroupController extends Controller
 
             $group = User::create($data);
             return redirect() -> route('groups.index');
-           if($moveFile)
-           {
-           
-           }
-
-           
-            
-
+          
 
         }
 
