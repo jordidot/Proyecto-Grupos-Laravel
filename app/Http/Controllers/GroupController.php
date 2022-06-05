@@ -18,7 +18,11 @@ class GroupController extends Controller
 
     public function index()
     {
-        
+        $userGroup = User::select('cities.name AS cityName', 'users.name')
+        -> join('cities','cities.id','=','users.city')
+        -> get();
+        return view('admin.gestion.groups.index') 
+        -> with('userGroup',$userGroup);
     }
 
     /**

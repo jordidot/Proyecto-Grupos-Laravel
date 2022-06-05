@@ -23,6 +23,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']]);
     // Crear Grupo
     Route::resource('groups', 'CreateGroupController');
+
+    // Conciertos admin
+    Route::resource('conciertos', 'ConciertosController')->middleware('auth');
     // Buscador
     Route::post('/search','SectionsController@search') -> name('search');
 });
