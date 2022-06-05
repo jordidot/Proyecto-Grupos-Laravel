@@ -48,7 +48,7 @@
           <p class="px-2">No hay ningun concierto</p>
           <div class="row">
             <div class="col-6">
-              <a href="" class="btn btn-success">Crear Concierto</a>
+              <a href="{{route('conciertos.create')}}" class="btn btn-success">Crear Concierto</a>
             </div>
 
           </div>
