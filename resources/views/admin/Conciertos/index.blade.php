@@ -34,8 +34,8 @@
                       <td>
                           {{-- <a href="" class=" py-1 btn btn-primary"><i class="fas fa-eye"></i></a> --}}
                           
-                            <form action="{{route('conciertos.edit',['id' => $concierto->id])}}" method="put">
-                              <button type="submit">Enviar</button>
+                            <form action="{{route('conciertos.edit',['concierto' => $concierto->id])}}" method="PUT">
+                              <a href="{{route('conciertos.edit',['concierto' => $concierto->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                             </form>
       
                       </td>

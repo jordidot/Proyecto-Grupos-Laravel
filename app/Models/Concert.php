@@ -12,4 +12,8 @@ class Concert extends Model
     use SoftDeletes;
     use Translatable;
     protected $translatedAttributes = ['title','description'];
+
+    public function concerttranslations(){
+        return $this->hasMany('App\Models\ConcertTranslation');
+    }
 }
