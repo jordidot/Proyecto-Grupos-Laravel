@@ -79,36 +79,39 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        if((public_path('images/imageUsers'.$id))==false){
-            //Guardo nombre en una variable
-            $imageUser=$request->image_user;
-            //Guardo el nom de la imatge
-            $nameImage=strtolower(basename($_FILES["$imageUser"]["name"]));
-            //Creo carpeta amb id del client y guardo imatges alla
-            $ruta = public_path('images/imageUsers/'.$id.'/'.$nameImage);
-            $rutadb = 'images/imageUsers/'.$id.'/'.$nameImage;
-            $moveFile=move_uploaded_file($_FILES["$imageUser"]["tmp_name"],$ruta);
-            //Creo el que guarda la ruta a la base de dades
+        if($imageUser=$request->file('image_user'))
+        {
+            $nameImage=strtolower(basename($_FILES["image_user"]['name']));
+            $ruta = 'images/imageUsers/user'.$id.'/';
+            $rutadb = 'images/imageUsers/user'.$id.'/'.$nameImage;
+            
+            if(!(public_path('images/imageUsers/user'.$id))){
+            mkdir('images/imageUsers/user'.$id);}
+
+            $imageUser->move($ruta,$nameImage);
+
             $dataImage=User::find($id);
             $dataImage->image_user=$rutadb;
             $dataImage->save();
-        return view('profile.edit');
-        }else{
-            mkdir('images/imageUsers');
-            mkdir('images/imageUsers/'.$id);
-            //Guardo nombre en una variable
-            $imageUser=$request->image_user;
-            //Guardo el nom de la imatge
-            $nameImage=strtolower(basename($_FILES["$imageUser"]["name"]));
-            //Creo carpeta amb id del client y guardo imatges alla
-            $ruta = public_path('images/imageUsers/'.$id.'/'.$nameImage);
-            $rutadb = 'images/imageUsers/'.$id.'/'.$nameImage;
-            $moveFile=move_uploaded_file($_FILES["$imageUser"]["tmp_name"],$ruta);
-            //Creo el que guarda la ruta a la base de dades
-            $dataImage=User::find($id);
-            $dataImage->image_user=$rutadb;
-            $dataImage->save();
-            return view('profile.edit'); 
+            return redirect('profiles/'.$id.'/edit');
+        }
+        if($request->name)
+        {
+            $data=User::find($id);
+            $data->name=$request->name;
+            $data->first_name=$request->first_name;
+            $data->last_name=$request->last_name;
+            $data->city=$request->city;
+            $data->email=$request->email;
+            $data->rol=$request->rol;
+            $data->save();
+            return redirect('profiles/'.$id.'/edit');
+        }
+        if($request->password)
+        {
+            $data=User::find($id);
+            $data->password=$request->newpassword;
+            $data->save();
         }
     }
 
@@ -123,16 +126,3 @@ class GroupController extends Controller
         //
     }
 }
-
-/*if($request->name){
-    $data=User::find($id);
-    $data->name=$request->name;
-    $data->password=$request->newpassword;
-    $data->first_name=$request->first_name;
-    $data->last_name=$request->last_name;
-    $data->city=$request->city;
-    $data->email=$request->email;
-    $data->rol=$request->rol;
-    $data->save();
-    return redirect('/profiles/$id/edit');
-    }*/
