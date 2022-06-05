@@ -13,7 +13,7 @@
                 <div class="card-body">
                 @foreach($users as $user)
                 @if($user->id == Auth::User()->id)
-                {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'PUT'])!!}
+                {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'PATCH'])!!}
                     <table align="right">
                         <tr>
                             <td><label for="actualpassword">{{__('web.actual_password_profile')}}</label></td>
@@ -30,7 +30,20 @@
                     </table>
                 {!!Form::close()!!}
                 @endif
-
+                @if($user->id == Auth::User()->id)
+                {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'PUT'])!!}
+                    <table>
+                        <tr>
+                            <td><label for="image_user">{{__('web.image_user_profile')}}</label></td>
+                            <td>{!!Form::file('image_user',null,[])!!}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="submit">{{__('web.modificate_title')}}</label></td>
+                            <td><input name="submit" type="submit" value="{{__('web.modificate_button')}}"></td>
+                        </tr>
+                    </table>
+                {!!Form::close()!!}
+                @endif
                 @if($user->id == Auth::User()->id)
                 {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'PUT'])!!}
                         <table align="left">
@@ -57,10 +70,6 @@
                             <tr>
                                 <td><label for="rol">{{__('web.rol')}}</label></td>
                                 <td>{!!Form::text('rol',$user->rol,[])!!}</td>
-                            </tr>
-                            <tr>
-                                <td><label for="image_user">{{__('web.image_user_profile')}}</label></td>
-                                <td>{!!Form::file('image_user',null,[])!!}</td>
                             </tr>
                             <tr>
                                 <td><label for="submit">{{__('web.modificate_title')}}</label></td>

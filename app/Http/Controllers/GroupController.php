@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use App\User;
 use App\Models\City;
@@ -77,17 +78,38 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $data=User::find($id);
-        $data->name=$request->name;
-        $data->password=$request->newpassword;
-        $data->first_name=$request->first_name;
-        $data->last_name=$request->last_name;
-        $data->city=$request->city;
-        $data->email=$request->email;
-        $data->rol=$request->rol;
-        $data->save();
-        return redirect('/profiles/$id/edit');
+    {   
+        if((public_path('images/imageUsers'.$id))==false){
+            //Guardo nombre en una variable
+            $imageUser=$request->image_user;
+            //Guardo el nom de la imatge
+            $nameImage=strtolower(basename($_FILES["$imageUser"]["name"]));
+            //Creo carpeta amb id del client y guardo imatges alla
+            $ruta = public_path('images/imageUsers/'.$id.'/'.$nameImage);
+            $rutadb = 'images/imageUsers/'.$id.'/'.$nameImage;
+            $moveFile=move_uploaded_file($_FILES["$imageUser"]["tmp_name"],$ruta);
+            //Creo el que guarda la ruta a la base de dades
+            $dataImage=User::find($id);
+            $dataImage->image_user=$rutadb;
+            $dataImage->save();
+        return view('profile.edit');
+        }else{
+            mkdir('images/imageUsers');
+            mkdir('images/imageUsers/'.$id);
+            //Guardo nombre en una variable
+            $imageUser=$request->image_user;
+            //Guardo el nom de la imatge
+            $nameImage=strtolower(basename($_FILES["$imageUser"]["name"]));
+            //Creo carpeta amb id del client y guardo imatges alla
+            $ruta = public_path('images/imageUsers/'.$id.'/'.$nameImage);
+            $rutadb = 'images/imageUsers/'.$id.'/'.$nameImage;
+            $moveFile=move_uploaded_file($_FILES["$imageUser"]["tmp_name"],$ruta);
+            //Creo el que guarda la ruta a la base de dades
+            $dataImage=User::find($id);
+            $dataImage->image_user=$rutadb;
+            $dataImage->save();
+            return view('profile.edit'); 
+        }
     }
 
     /**
@@ -101,3 +123,16 @@ class GroupController extends Controller
         //
     }
 }
+
+/*if($request->name){
+    $data=User::find($id);
+    $data->name=$request->name;
+    $data->password=$request->newpassword;
+    $data->first_name=$request->first_name;
+    $data->last_name=$request->last_name;
+    $data->city=$request->city;
+    $data->email=$request->email;
+    $data->rol=$request->rol;
+    $data->save();
+    return redirect('/profiles/$id/edit');
+    }*/
