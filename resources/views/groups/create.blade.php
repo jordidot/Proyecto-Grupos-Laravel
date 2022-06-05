@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td></td>
-            <td >{!!Form::file('image_group')!!}</td>
+            <td ><input type="file" name="image_group"></td>
             <td></td>
         </tr>
         <tr>

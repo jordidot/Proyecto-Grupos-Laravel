@@ -53,16 +53,15 @@ class SearchsController extends Controller
             ];
             $group=Group::create($data_title);
         }
-        if($imageUser=$request->file('image_group'))
+        if($request->hasFile('image_group'))
         {
-            $id=Auth::User()->id_group;
-            $name = strtolower(basename($_FILES["image_group"]["name"])); 
-            $ruta = public_path('images/groups/group'.$id.'/'.$name);
-            $rutadb = 'images/groups/group'.$id.'/'.$name;
-            if(!(public_path('images/groups/group'.$id))){
-            mkdir('images/groups/group'.$id);}
-            $moveuploadedfile = move_uploaded_file($_FILES["image_group"]["tmp_name"],$ruta);
-            $imageGroup=Group::create($rutadb);
+            $id=Auth::User()->group_id;
+            $nameImage=strtolower(basename($_FILES["image_group"]['name']));
+            $ruta = 'images/imageGroup/group'.$id.'/';
+            $rutadb = 'images/imageGroup/group'.$id.'/'.$nameImage;
+            mkdir('images/imageGroup/group'.$id);
+            move_uploaded_file($_FILES["image_group"]['tmp_name'],$ruta);
+            Group::create($rutadb);
         }
         if($request->description)
         {
@@ -78,7 +77,7 @@ class SearchsController extends Controller
                 'description'=>$request->descriptionen
             ];
             $data['en'] = $data_en;
-            $group=Group::create($data);
+            $group=GroupTranslation::create($data);
 
             return view('groups.index');
         }
