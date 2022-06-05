@@ -1,0 +1,9 @@
+diff a/app/Http/Controllers/GroupController.php b/app/Http/Controllers/GroupController.php	(rejected hunks)
+@@ -16,6 +16,7 @@
+ 
+     public function index()
+     {
++        $userGroup = User::select('cities.name AS cityName', 'users.name')
+         -> join('cities','cities.id','=','users.city')
+         -> get();
+         return view('admin.gestion.groups.index') 

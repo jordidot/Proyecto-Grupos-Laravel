@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use App\User;
+use App\Models\City;
 class GroupController extends Controller
 {
     /*
@@ -30,8 +32,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-    
-        
+        //
     }
 
     /**
@@ -53,7 +54,7 @@ class GroupController extends Controller
      */
     public function show($id)
     {
-        //
+    
     }
 
     /**
@@ -64,7 +65,13 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users=User::get();
+        $cities=City::get();
+        $groups=Group::get();
+        return view('profile.edit')
+        -> with('users',$users)
+        -> with('cities',$cities) 
+        -> with('groups',$groups);
     }
 
     /**
@@ -75,8 +82,41 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        if($imageUser=$request->file('image_user'))
+        {
+            $nameImage=strtolower(basename($_FILES["image_user"]['name']));
+            $ruta = 'images/imageUsers/user'.$id.'/';
+            $rutadb = 'images/imageUsers/user'.$id.'/'.$nameImage;
+            
+            if(!(public_path('images/imageUsers/user'.$id))){
+            mkdir('images/imageUsers/user'.$id);}
+
+            $imageUser->move($ruta,$nameImage);
+
+            $dataImage=User::find($id);
+            $dataImage->image_user=$rutadb;
+            $dataImage->save();
+            return redirect('profiles/'.$id.'/edit');
+        }
+        if($request->name)
+        {
+            $data=User::find($id);
+            $data->name=$request->name;
+            $data->first_name=$request->first_name;
+            $data->last_name=$request->last_name;
+            $data->city=$request->city;
+            $data->email=$request->email;
+            $data->rol=$request->rol;
+            $data->save();
+            return redirect('profiles/'.$id.'/edit');
+        }
+        if($request->password)
+        {
+            $data=User::find($id);
+            $data->password=$request->newpassword;
+            $data->save();
+        }
     }
 
     /**

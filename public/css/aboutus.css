@@ -26,6 +26,7 @@ body{
     position:relative;
     float:left;
     top:-180px;
+    
 }
 .title-header-aboutus-3{
     width: 800px;
@@ -70,9 +71,6 @@ body{
 
 
 }
-.content-profile{
-
-}
 .image-profile{
     position:relative;
     border-radius:100px;
@@ -96,9 +94,6 @@ body{
     font-size: 20px;
 
 }
-.title-profile{
-    
-}
 .description-profile p{
     font-size:15px;
     padding:30px;
@@ -107,12 +102,23 @@ body{
     width:100px;
     height:100px;
 }
+.home_button {
+    position:relative;
+    float:left;
+    width:100px;
+    height:20px;
+    border: 1px green solid;
+    
+}
 @media (max-width: 1670px) {
     .title-header-aboutus-2{
         display:none;
     }
     .title-header-aboutus-3{
         display:none;
+    }
+    .container2{
+        top:-350px;
     }
 }
 @media (max-width: 875px) {

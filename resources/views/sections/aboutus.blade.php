@@ -14,10 +14,10 @@
 <body>
     <header class="header-container-aboutus">
         <div class="title-header-aboutus">
-            <h2>{{__('web.title_about_us')}}</h2>
+        <h2>{{__('web.title_about_us')}}</h2>
         </div>
         <div class="title-header-aboutus-2">
-        <h2>/</h2>
+        <a style="text-decoration:none;color:white;" href="{{route('home')}}"><h2>/</h2></a>
         </div>
         <div class="title-header-aboutus-3">
         <h2>
@@ -25,9 +25,9 @@
         </h2>
         </div>
     </header>
-    <section class="container">
+    <section class="container container2">
         <div class="title-container">
-        <h2>{{__('web.developers_title')}}</h2>
+            <h2>{{__('web.developers_title')}}</h2>
         </div>
         <div class="container-aboutus-profile">
             @foreach($users as $user)
@@ -54,7 +54,7 @@
                         </p>
                     </div>
                     <div class="rs-profile">
-                            <a href=""><img src="{{asset('images/redessociales.png')}}"></a>
+                        <a href=""><img src="{{asset('images/redessociales.png')}}"></a>
                     </div>
                 </div>
             </div>

@@ -69,26 +69,14 @@
                     <div class="info-user" style="margin-left: 10px;">
 
                         <div class="profile-user">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                @if(Auth::User()-> image_user === NULL)
-                                        <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('profiles.edit',['profile'=>Auth::User()->id])}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(is_null(Auth::User()->image_user))
+                                    <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
-                                    
-                                        <img style="border-radius:50px; width:40px;" src="{{asset(Auth::User()-> image_user)}}">
-
+                                    <img style="border-radius:300px; width:50px;heigth:50px;" src="{{asset(Auth::User()->image_user)}}">
                                 @endif
                             </a>
                         </div>
-
-                        <div class="btn-logout">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                        {{ __('web.logout') }}
-                            </a>
-                        </div>
-
-
                     </div>
                 @endif
 
@@ -128,7 +116,7 @@
                     <div class="info-user" style="margin-left: 10px;">
 
                         <div class="profile-user">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{Route('homeGestionGroups')}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="@if (Auth::User()->is_group == 1 | Auth::User()->is_admin == 1){{route('profiles.edit',['profile'=>Auth::User()->id])}}@endif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(Auth::User()-> image_user === NULL)
                                         <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
@@ -138,16 +126,6 @@
                                 @endif
                             </a>
                         </div>
-
-                        <div class="btn-logout">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                        {{ __('web.logout') }}
-                            </a>
-                        </div>
-
-
                     </div>
                 @endif
                 
