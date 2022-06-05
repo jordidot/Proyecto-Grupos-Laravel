@@ -20,18 +20,22 @@
         <form action="{{route('conciertos.store')}}" method="POST" enctype="multipart/form-data" class="px-2">
             @csrf
             
+            <pre>
+                {{var_dump($concierto_es)}}
+            </pre>
+            {{-- @foreach ($concierto_es as $conciertoes)
+                <div class="mb-4">
+                    <label class="form-label">Titulo del concierto(Castellano)</label>
+                    <input type="text" name="titleConcierto_es" placeholder="Titulo castellano" value="{{}}" class="form-control">
+                </div>
 
+                <div class="mb-4">
+                    <label class="form-label">Descripcion del concierto(Castellano)</label>
+                    <textarea name="descconcierto_es" class="form-control bg-light text-primary fw-600" rows="5"></textarea>
+                </div>
+            @endforeach --}}
 
-
-            <div class="mb-4">
-                <label class="form-label">Titulo del concierto(Castellano)</label>
-                <input type="text" name="titleConcierto_es" placeholder="Titulo castellano" class="form-control">
-            </div>
-
-            <div class="mb-4">
-                <label class="form-label">Descripcion del concierto(Castellano)</label>
-                <textarea name="descconcierto_es" class="form-control bg-light text-primary fw-600" rows="5"></textarea>
-            </div>
+            
 
 
 
@@ -88,73 +92,6 @@
             <div class="mb-5">
                 <label class="form-label">Imagen del concierto</label>
                 <input type="file" name="imagenConcierto" placeholder="Titulo" class="form-control">
-            </div>
-
-
-             <div class="mb-4">
-                <h3 class="mb-4">Seleccionar grupos inivitados:</h3>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Default checkbox
-                            </label>
-                        </div>
-                    </div>
-                </div>
             </div>
 
            <div class="mb-5">
