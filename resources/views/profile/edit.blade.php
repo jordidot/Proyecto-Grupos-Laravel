@@ -31,11 +31,12 @@
                 {!!Form::close()!!}
                 @endif
                 @if($user->id == Auth::User()->id)
-                {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'PUT'])!!}
+                {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'POST','enctype'=>'multipart/form-data'])!!}
+                    @method('PUT')
                     <table>
                         <tr>
                             <td><label for="image_user">{{__('web.image_user_profile')}}</label></td>
-                            <td>{!!Form::file('image_user',null,[])!!}</td>
+                            <td><input type="file" name="image_user"></td>
                         </tr>
                         <tr>
                             <td><label for="submit">{{__('web.modificate_title')}}</label></td>
@@ -44,6 +45,7 @@
                     </table>
                 {!!Form::close()!!}
                 @endif
+                <br>
                 @if($user->id == Auth::User()->id)
                 {!!Form::model($user,['url'=>'/profiles/'.Auth::User()->id, 'method'=>'PUT'])!!}
                         <table align="left">
