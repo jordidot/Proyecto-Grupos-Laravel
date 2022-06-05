@@ -56,6 +56,7 @@
                                     
                                     @if (Auth::user()->is_admin != 0 || Auth::user()->is_group != 0 )
                                         <a href="{{Route('profiles.edit',['profile' => Auth::user()->id])}}" class="dropdown-item">Editar perfil</a>
+                                        <a href="{{route('groups.index')}}" class="dropdown-item">Gestión grupos</a>
                                         <a href="{{Route('conciertos.index')}}" class="dropdown-item">Gestion de conciertos</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -77,6 +78,8 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('groups')
+            @yield('create_group')
         </main>
     </div>
 </body>

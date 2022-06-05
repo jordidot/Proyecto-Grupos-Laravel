@@ -28,4 +28,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('conciertos', 'ConciertosController')->middleware('auth');
     // Buscador
     Route::post('/search','SectionsController@search') -> name('search');
+    Route::resource('groups', 'SearchsController');
 });
