@@ -54,13 +54,10 @@
                                 </a>                               
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
-<<<<<<< HEAD
                                     @if (Auth::user()->is_admin != 0 || Auth::user()->is_group != 0 )
-                                        <a href="{{Route('homeGestionGroups')}}" class="dropdown-item">Gestion de grupos</a>
+                                        <a href="{{Route('profiles.edit',['profile' => Auth::user()->id])}}" class="dropdown-item">Gestion de grupos</a>
                                         <a href="{{Route('conciertos.index')}}" class="dropdown-item">Gestion de conciertos</a>
                                     @endif
-=======
->>>>>>> main
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
