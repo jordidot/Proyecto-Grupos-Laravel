@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400700;900&display=swap);
-=======
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;
 
->>>>>>> b3e11b9e5ec655ff0a9abb371cecaaf31e808b27
-* {
+700;900&display=swap);* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -541,7 +537,7 @@ html {
   height: 700px;
   min-height: 800px;
   background-color: #1a1a1a;
-  background-image: url(../images/banner-header.jpg);
+  background-image: url(/images/banner-header.jpg?99152cbfcc2106bb060bbd3b760805ea);
   background-blend-mode: overlay;
   background-attachment: fixed;
   background-size: cover;
@@ -966,7 +962,7 @@ html {
   min-height: 400px;
   padding: 10px 10px;
   background-color: rgba(0, 0, 0, 0.6039215686);
-  background-image: url(../images/banner-header.jpg);
+  background-image: url(/images/banner-header.jpg?99152cbfcc2106bb060bbd3b760805ea);
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
