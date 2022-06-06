@@ -144,15 +144,6 @@ class ConciertosController extends Controller
         // Crear plantilla formulario update
 
         // query select result = $id
-<<<<<<< HEAD
-        $concierto_es = ConcertTranslation::where('locale','es')->where('concert_id', $id)->get();
-        $concierto_ca = ConcertTranslation::where('locale','ca')->find($id);
-        $concierto_en = ConcertTranslation::where('locale','en')->find($id);
-        $municiopios = City::get();
-
-        return view('admin.Conciertos.edit')
-        -> with('concierto_es', $concierto_es)
-=======
         $concierto = Concert::where('id',$id)->limit(1)->get();
         $conciertoes =  ConcertTranslation::where('locale','es')->where('concert_id', $id)->get();
         $concierto_ca = ConcertTranslation::where('locale','ca')->where('concert_id', $id)->get();
@@ -162,7 +153,6 @@ class ConciertosController extends Controller
         return view('admin.Conciertos.edit')
         -> with('concierto',$concierto)
         -> with('conciertoes', $conciertoes)
->>>>>>> creacion-conciertos
         -> with('concierto_ca', $concierto_ca)
         -> with('concierto_en', $concierto_en)
         -> with('municiopios',$municiopios);

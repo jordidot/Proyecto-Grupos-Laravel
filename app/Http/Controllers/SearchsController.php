@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Group;
 use App\Models\Concert;
+use App\User;
 use App\Models\GroupTranslation;
 
 class SearchsController extends Controller

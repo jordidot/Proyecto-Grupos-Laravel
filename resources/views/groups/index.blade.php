@@ -6,7 +6,7 @@
     </div>
     <div class="container h-50 shadow py-3 rounded">
         @if(count($groups)!= 0)
-        <a href="{{route('conciertos.create')}}" class="btn btn-success mb-2">Crear Concierto</a>
+        <a href="{{route('groups.create')}}" class="btn btn-success mb-2">Crear Grupo</a>
         <table class="table table-striped text-center">
             <thead>
                 <tr>
