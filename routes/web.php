@@ -14,15 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-    
     Auth::routes();
     Route::get('/','SectionsController@home')->name('home');
     Route::get('/aboutus', 'SectionsController@aboutus')->name('aboutus');
     Route::get('/home', 'HomeController@index')->name('homeAdmin');
     // Gestion de grupos
-    Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']]);
+    Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']])->middleware('auth');
     // Crear Grupo
-    Route::resource('groups', 'SearchsController');
+    Route::resource('groups', 'SearchsController')->middleware('auth');
     //Vista grupos
     Route::get('/all-groups', 'GroupsController@index')->name('groups.all');
 
