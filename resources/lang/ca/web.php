@@ -64,6 +64,10 @@
         'button_image_buy'=>'Comprar entrades',
         'button_image_booking'=>'Reservar entrades',
         'title_join_up'=>'UNEIX-TE A NOSALTRES PER GAUDIR DE MÉS AVANTATGES',
-        'description_join_up'=>'Podràs comentar als posts dels concerts, també una nova funcionalitat de guardar el teu grup favorit per veure els nous concerts.'
+        'description_join_up'=>'Podràs comentar als posts dels concerts, també una nova funcionalitat de guardar el teu grup favorit per veure els nous concerts.',
+        'title_general'=>'Títol',
+        'description_general'=>'Descripció',
+        'actions_general'=>'Accions',
+        'nothing'=>'No hi ha res que mostrar'
     ];
 ?>

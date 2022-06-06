@@ -64,6 +64,10 @@
         'button_image_buy'=>'Buy tickets',
         'button_image_booking'=>'Book tickets',
         'title_join_up'=>'JOIN US TO ENJOY MORE ADVANTAGES',
-        'description_join_up'=>'You will be able to comment on the concert posts, as well as a new functionality to save your favorite group to see the new concerts.'
+        'description_join_up'=>'You will be able to comment on the concert posts, as well as a new functionality to save your favorite group to see the new concerts.',
+        'title_general'=>'Title',
+        'description_general'=>'Description',
+        'actions_general'=>'Actions',
+        'nothing'=>'Nothing to show'
     ];
 ?>

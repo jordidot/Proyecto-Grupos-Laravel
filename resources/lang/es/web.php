@@ -64,6 +64,10 @@
         'button_image_buy'=>'Comprar entradas',
         'button_image_booking'=>'Reservar entradas',
         'title_join_up'=>'ÚNETE A NOSOTROS PARA DISFRUTAR DE MÁS VENTAJAS',
-        'description_join_up'=>'Podrás comentar en los posts de los conciertos, también una nueva funcionalidad de guardar tu grupo favorito para ver los nuevos conciertos.'
+        'description_join_up'=>'Podrás comentar en los posts de los conciertos, también una nueva funcionalidad de guardar tu grupo favorito para ver los nuevos conciertos.',
+        'title_general'=>'Titulo',
+        'description_general'=>'Descripción',
+        'actions_general'=>'Acciones',
+        'nothing'=>'No hay nada que mostrar'
     ];
 ?>
