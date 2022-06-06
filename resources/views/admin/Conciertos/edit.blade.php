@@ -19,80 +19,92 @@
         
         <form action="{{route('conciertos.store')}}" method="POST" enctype="multipart/form-data" class="px-2">
             @csrf
-            
+
+
             <pre>
-                {{var_dump($concierto_es)}}
+                
             </pre>
-            {{-- @foreach ($concierto_es as $conciertoes)
+            
+            @foreach ($conciertoes as $conciertocastellano)
                 <div class="mb-4">
                     <label class="form-label">Titulo del concierto(Castellano)</label>
-                    <input type="text" name="titleConcierto_es" placeholder="Titulo castellano" value="{{}}" class="form-control">
+                    <input type="text" name="titleConcierto_es" placeholder="Titulo castellano" value="{{$conciertocastellano->title}}" class="form-control">
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Descripcion del concierto(Castellano)</label>
-                    <textarea name="descconcierto_es" class="form-control bg-light text-primary fw-600" rows="5"></textarea>
+                    <textarea name="descconcierto_es" class="form-control bg-light text-primary fw-600" rows="5">{{$conciertocastellano->description}}</textarea>
                 </div>
-            @endforeach --}}
+            @endforeach
 
             
 
 
-
-            <div class="mb-4">
-                <label class="form-label">Titulo del concierto(Catalan)</label>
-                <input type="text" name="titleConcierto_ca" placeholder="Titulo catalan" class="form-control">
-            </div>
-            <div class="mb-4">
-                <label class="form-label">Descripcion del concierto(Catalan)</label>
-                <textarea name="descconcierto_ca" class="form-control" rows="5"></textarea>
-            </div>
-
-
-            <div class="mb-4">
-                <label class="form-label">Titulo del concierto(Ingles)</label>
-                <input type="text" name="titleConcierto_en" placeholder="Titulo ingles" class="form-control">
-            </div>
-
-            <div class="mb-4">
-                <label class="form-label">Descripcion del concierto(Ingles)</label>
-                <textarea name="descconcierto_en" class="form-control" rows="5"></textarea>
-            </div>
+            @foreach ($concierto_ca as $conciertocatalan)
+                <div class="mb-4">
+                    <label class="form-label">Titulo del concierto(Catalan)</label>
+                    <input type="text" name="titleConcierto_ca" value="{{$conciertocatalan->title}}" placeholder="Titulo catalan" class="form-control">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Descripcion del concierto(Catalan)</label>
+                    <textarea name="descconcierto_ca" class="form-control" rows="5">{{$conciertocatalan->description}}</textarea>
+                </div>
+            @endforeach
 
             
-            <div class="mb-4">
-                <label class="form-label">Ciudades</label>
-                <select class="form-control" name="selectCity">
+            @foreach ($concierto_en as $conciertoingles)
+                <div class="mb-4">
+                    <label class="form-label">Titulo del concierto(Ingles)</label>
+                    <input type="text" name="titleConcierto_en" value="{{$conciertoingles->title}}" placeholder="Titulo ingles" class="form-control">
+                </div>
 
-                   @if (count($municiopios) > 0)
-                       
-                    @foreach ($municiopios as $municipio)
-                        @if ($municipio->id === 1)
-                            <option selected value="{{$municipio->id}}">{{$municipio->name}}</option>
-                        @else
-                        <option value="{{$municipio->id}}">{{$municipio->name}}</option>
+                <div class="mb-4">
+                    <label class="form-label">Descripcion del concierto(Ingles)</label>
+                    <textarea name="descconcierto_en" class="form-control" rows="5">{{$conciertoingles->description}}</textarea>
+                </div>
+            @endforeach
+
+            @foreach ($concierto as $concert)
+                    <div class="mb-4">
+                        <label class="form-label">Ciudades</label>
+                        <select class="form-control" name="selectCity">
+
+                        @if (count($municiopios) > 0)   
+                            @foreach ($municiopios as $municipio)
+                                @if ($municipio->id == $concert->city)
+                                    <option selected value="{{$municipio->id}}">{{$municipio->name}}</option>
+                                @else
+                                <option value="{{$municipio->id}}">{{$municipio->name}}</option>
+                                @endif
+                            @endforeach
+                            
                         @endif
-                    @endforeach
-                       
-                   @endif
-                                              
-                </select>
-            </div>
+                                                    
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Fecha</label>
+                        <input type="date" name="fechaConcierto" value="{{$concert->date}}" class="form-control">
+                    </div>
+        
+                    <div class="mb-4">
+                        <label class="form-label">Horario</label>
+                        <input type="time" name="horarioConcierto" value="{{$concert->schedule}}" class="form-control">
+                    </div>
+        
+                    <div class="mb-5">
+                        <label class="form-label">Imagen del concierto</label>
+                        <input type="file" name="imagenConcierto" placeholder="Titulo" class="form-control">
 
-            <div class="mb-4">
-                <label class="form-label">Fecha</label>
-                <input type="date" name="fechaConcierto" placeholder="Titulo" class="form-control">
-            </div>
+                        <div class="mt-5">
+                            <p>Imagen Actual</p>
+                            <img src="{{asset($concert->image)}}" width="200" alt="">
+                        </div>
+                    </div>
+             @endforeach
+            
 
-            <div class="mb-4">
-                <label class="form-label">Horario</label>
-                <input type="time" name="horarioConcierto" placeholder="Titulo" class="form-control">
-            </div>
-
-            <div class="mb-5">
-                <label class="form-label">Imagen del concierto</label>
-                <input type="file" name="imagenConcierto" placeholder="Titulo" class="form-control">
-            </div>
+           
 
            <div class="mb-5">
                 <button type="submit" class="btn btn-outline-success px-3">Subir concierto</button>

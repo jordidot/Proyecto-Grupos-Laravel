@@ -39,4 +39,16 @@ class SectionsController extends Controller
         return view('sections.aboutus')
         ->with('users', $users);
     }
+
+    public function conciertos(){
+        $concerts=Concert::select('concerts.*','cities.name')
+        ->join('cities','cities.id','concerts.id')
+        ->get();
+        return view('sections.conciertos.conciertos')
+        ->with('concerts', $concerts);
+    }
+    public function conciertosdetail($id)
+    {
+        return view('sections.conciertos.conciertosdetail');
+    }
 }
