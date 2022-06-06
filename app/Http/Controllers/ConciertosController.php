@@ -144,6 +144,7 @@ class ConciertosController extends Controller
         // Crear plantilla formulario update
 
         // query select result = $id
+<<<<<<< HEAD
         $concierto_es = ConcertTranslation::where('locale','es')->where('concert_id', $id)->get();
         $concierto_ca = ConcertTranslation::where('locale','ca')->find($id);
         $concierto_en = ConcertTranslation::where('locale','en')->find($id);
@@ -151,6 +152,17 @@ class ConciertosController extends Controller
 
         return view('admin.Conciertos.edit')
         -> with('concierto_es', $concierto_es)
+=======
+        $concierto = Concert::where('id',$id)->limit(1)->get();
+        $conciertoes =  ConcertTranslation::where('locale','es')->where('concert_id', $id)->get();
+        $concierto_ca = ConcertTranslation::where('locale','ca')->where('concert_id', $id)->get();
+        $concierto_en = ConcertTranslation::where('locale','en')->where('concert_id', $id)->get();
+        $municiopios = City::get();
+
+        return view('admin.Conciertos.edit')
+        -> with('concierto',$concierto)
+        -> with('conciertoes', $conciertoes)
+>>>>>>> creacion-conciertos
         -> with('concierto_ca', $concierto_ca)
         -> with('concierto_en', $concierto_en)
         -> with('municiopios',$municiopios);
@@ -166,6 +178,23 @@ class ConciertosController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        if($imageUser=$request->file('imagenConcierto'))
+        {
+            $nameImage=strtolower(basename($_FILES["imagenConcierto"]['name']));
+            $ruta = 'images/conciertos/';
+            $rutadb = 'images/conciertos/'.$nameImage;
+            
+            if(!(public_path('images/conciertos'))){
+            mkdir('images/conciertos');}
+
+            $imageUser->move($ruta,$nameImage);
+
+            $dataImage= Concert::where('id',$id);
+            $dataImage->image=$rutadb;
+            $dataImage->save();
+            return redirect('conciertos/'.$id.'/edit');
+        }
     }
 
     /**

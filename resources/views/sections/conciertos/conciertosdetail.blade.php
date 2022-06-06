@@ -1,0 +1,3 @@
+@extends('layouts.pageDetalles.concierto')
+
+
