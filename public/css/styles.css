@@ -1,6 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;
-
-700;900&display=swap);* {
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400700;900&display=swap);
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -20,7 +19,7 @@ html {
 }
 
 .fw-bold {
-  font-weight: bold !important;
+  font-weight: bold;
 }
 
 .text-color-verify {
@@ -76,6 +75,7 @@ html {
   height: max-content;
   position: fixed;
   top: 0;
+  z-index: 999;
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
   -webkit-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
   -moz-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
@@ -536,7 +536,7 @@ html {
   height: 700px;
   min-height: 800px;
   background-color: #1a1a1a;
-  background-image: url(/images/banner-header.jpg?99152cbfcc2106bb060bbd3b760805ea);
+  background-image: url(../images/banner-header.jpg);
   background-blend-mode: overlay;
   background-attachment: fixed;
   background-size: cover;
@@ -961,7 +961,7 @@ html {
   min-height: 400px;
   padding: 10px 10px;
   background-color: rgba(0, 0, 0, 0.6039215686);
-  background-image: url(/images/banner-header.jpg?99152cbfcc2106bb060bbd3b760805ea);
+  background-image: url(../images/banner-header.jpg);
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
@@ -1101,5 +1101,287 @@ html {
   .paginator ul li {
     padding: 10px 10px;
   }
+}
+
+/*
+    * =============================
+    * Styles Page Detalle concierto
+    * ============================
+*/
+
+.container-info-concert {
+  width: 100%;
+  min-height: 350px;
+  background-color: rgba(0, 0, 0, 0.559);
+  background-image: url(/images/banner-header.jpg?99152cbfcc2106bb060bbd3b760805ea);
+  background-size: cover;
+  background-position: center 150%;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-info {
+  width: 100%;
+  height: 100%;
+  margin-top: 55px;
+  padding: 0px 20px;
+}
+
+.horario-ubicacion {
+  margin-bottom: 20px;
+}
+
+.horario-ubicacion h3 {
+  color: white;
+}
+
+.title-concierto {
+  z-index: -99;
+}
+
+.title-concierto h2 {
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .container-info-concert {
+    min-height: 300px;
+  }
+
+  .content-info {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px 0px !important;
+    margin-top: 65px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .content-info {
+    width: 80%;
+  }
+}
+
+.cartel-artistas-invitados {
+  width: 80%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: 0 auto;
+}
+
+.title-section h3 {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+}
+
+.title-section h3::after {
+  content: "";
+  width: 85%;
+  height: 3px;
+  background-color: #000000;
+  position: absolute;
+  border-radius: 10px;
+  bottom: -5px;
+  left: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.content-cartel-flex {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 50px;
+}
+
+.card-cartel {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-bottom: 50px;
+}
+
+.card-cartel .card-img {
+  width: 100%;
+  height: 300px;
+}
+
+.card-cartel .card-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .content-cartel-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .card-cartel {
+    width: 250px;
+  }
+
+  .card-cartel .card-img {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card-cartel {
+    width: 325px;
+  }
+
+  .card-cartel .card-img {
+    height: 350px;
+  }
+}
+
+.info-concierto {
+  width: 80%;
+  margin: 0 auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card-content {
+  margin-top: 20px;
+}
+
+.card-content div {
+  margin-bottom: 15px;
+}
+
+.card-content div:last-child {
+  margin-top: 30px;
+}
+
+.desc-concert {
+  color: rgba(0, 0, 0, 0.73);
+  line-height: 25px;
+}
+
+.btn-follow-concert {
+  margin-top: 30px;
+}
+
+.btn-follow-concert a {
+  padding: 8px 43px;
+  background-color: #28182b;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.btn-follow-concert a i {
+  margin-right: 10px;
+}
+
+.conciertos-relacionados {
+  width: 80%;
+  margin: 0 auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 150px;
+}
+
+.conciertos-relacionados .container-flex-concerts {
+  margin-top: 50px;
+}
+
+.container-comentarios {
+  width: 80%;
+  margin: 0 auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 150px;
+}
+
+.container-primary-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-add-comment {
+  margin-top: 20px;
+}
+
+.btn-add-comment a {
+  padding: 8px 43px;
+  background-color: #28182b;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+@media screen and (min-width: 425px) {
+  .btn-add-comment {
+    margin-top: 0px;
+  }
+}
+
+.container-comentarios-flex {
+  margin-top: 50px;
+}
+
+.item-comentario {
+  margin-bottom: 60px;
+}
+
+.info-user-comment {
+  display: flex;
+  align-items: center;
+}
+
+.info-user-comment .names-user {
+  margin-top: 12px;
+  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.73);
+}
+
+.date-comm {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.content-comment {
+  margin-top: 15px;
+}
+
+.content-comment p {
+  line-height: 25px;
 }
 

@@ -74,6 +74,7 @@ html {
   height: max-content;
   position: fixed;
   top: 0;
+  z-index: 999;
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
   -webkit-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
   -moz-transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
@@ -982,8 +983,7 @@ html {
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
-      a
-      {
+      a {
         width: 100%;
         height: 100%;
         display: flex;
@@ -1003,11 +1003,9 @@ html {
     }
   }
 }
-.paginator-actived
-{
+.paginator-actived {
   background-color: $colorMorado;
-  a
-  {
+  a {
     color: white !important;
   }
 }
@@ -1021,7 +1019,6 @@ html {
       }
     }
   }
-  
 }
 
 @media screen and (max-width: 320px) {
@@ -1033,5 +1030,253 @@ html {
       }
     }
   }
-  
+}
+
+/*
+    * =============================
+    * Styles Page Detalle concierto
+    * ============================
+*/
+
+.container-info-concert {
+  width: 100%;
+  min-height: 350px;
+  background-color: rgba(0, 0, 0, 0.559);
+  background-image: url(../images/banner-header.jpg);
+  background-size: cover;
+  background-position: center 150%;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-info {
+  width: 100%;
+  height: 100%;
+  margin-top: 55px;
+  padding: 0px 20px;
+}
+.horario-ubicacion {
+  margin-bottom: 20px;
+  h3 {
+    color: white;
+  }
+}
+
+.title-concierto {
+  z-index: -99;
+  h2 {
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container-info-concert {
+    min-height: 300px;
+  }
+  .content-info {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px 0px !important;
+    margin-top: 65px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .content-info {
+    width: 80%;
+  }
+}
+
+// Style cartel artistas invitados
+
+.cartel-artistas-invitados {
+  width: 80%;
+  height: max-content;
+  margin: 0 auto;
+}
+
+.title-section {
+  h3 {
+    width: max-content;
+    position: relative;
+    &::after {
+      content: "";
+      width: 85%;
+      height: 3px;
+      background-color: #000000;
+      position: absolute;
+      border-radius: 10px;
+      bottom: -5px;
+      left: 0;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
+}
+
+.content-cartel-flex {
+  width: 100%;
+  height: max-content;
+  margin-top: 50px;
+}
+
+.card-cartel {
+  width: 100%;
+  height: max-content;
+  margin-bottom: 50px;
+
+  .card-img {
+    width: 100%;
+    height: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.card-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .content-cartel-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .card-cartel {
+    width: 250px;
+    .card-img {
+      height: 250px;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card-cartel {
+    width: 325px;
+    .card-img {
+      height: 350px;
+    }
+  }
+}
+
+.info-concierto {
+  width: 80%;
+  margin: 0 auto;
+  height: max-content;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card-content {
+  margin-top: 20px;
+}
+.card-content div {
+  margin-bottom: 15px;
+}
+.card-content div:last-child {
+  margin-top: 30px;
+}
+
+.desc-concert {
+  color: $colorText;
+  line-height: 25px;
+}
+.btn-follow-concert {
+  margin-top: 30px;
+  a {
+    padding: 8px 43px;
+    background-color: $colorMorado;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
+.conciertos-relacionados {
+  width: 80%;
+  margin: 0 auto;
+  height: max-content;
+  margin-top: 150px;
+  .container-flex-concerts {
+    margin-top: 50px;
+  }
+}
+
+.container-comentarios {
+  width: 80%;
+  margin: 0 auto;
+  height: max-content;
+  margin-top: 150px;
+}
+.container-primary-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-add-comment {
+  margin-top: 20px;
+  a {
+    padding: 8px 43px;
+    background-color: $colorMorado;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .btn-add-comment {
+    margin-top: 0px;
+  }
+}
+
+.container-comentarios-flex {
+  margin-top: 50px;
+}
+.item-comentario {
+  margin-bottom: 60px;
+}
+
+.info-user-comment {
+  display: flex;
+  align-items: center;
+  .names-user {
+    margin-top: 12px;
+    margin-left: 10px;
+    color: $colorText;
+  }
+}
+
+.date-comm{
+  margin-top: 15px;
+  font-size: 12px;
+}
+.content-comment{
+  margin-top: 15px;
+  p
+  {
+    line-height: 25px;
+  }
 }
