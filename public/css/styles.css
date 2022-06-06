@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css2?family=Lato:wght@400700;900&display=swap);
+=======
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+
+>>>>>>> b3e11b9e5ec655ff0a9abb371cecaaf31e808b27
 * {
   margin: 0;
   padding: 0;

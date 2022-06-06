@@ -42,7 +42,7 @@
                 <div class="menu-navbar-desktop">
                     <a class="menu-item-actived" href="{{route('home')}}">{{__('web.title_home')}}</a>
                     <a href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
-                    <a href="">{{__('web.title_groups')}}</a>
+                    <a href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
                     <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                 </div>
             </div>
