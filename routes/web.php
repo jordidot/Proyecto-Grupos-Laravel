@@ -23,6 +23,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']]);
     // Crear Grupo
     Route::resource('groups', 'SearchsController');
+    //Vista grupos
+    Route::get('/all-groups', 'GroupsController@index')->name('groups.all');
 
     // Conciertos admin
     Route::resource('conciertos', 'ConciertosController')->middleware('auth');

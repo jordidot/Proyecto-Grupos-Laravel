@@ -36,8 +36,8 @@
     
                     <div class="menu-navbar-desktop">
                         <a href="{{route('home')}}">{{__('web.title_home')}}</a>
-                        <a class="menu-item-actived" href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
-                        <a href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
+                        <a href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
+                        <a class="menu-item-actived" href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
                         <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
         <section class="all-concerts">
             <div class="title-view-all">
                 <div class="title-section">
-                    <h2>Todos los Conciertos</h2>
+                    <h2>Todos los Grupos</h2>
                 </div>
                 <div class="view-all">
                     <p>
@@ -181,46 +181,33 @@
                 </div>
             </div>
             <div class="container-flex-concerts">
-                    <!-- Items -->
-                    @if(count($concerts)==0)
+                <!-- Items -->
+                @if(count($groups)==0)
                     <p>No hay ningún dato que mostrar.</p>
                     @else
-                        @foreach($concerts as $concert)
+                        @foreach($groups as $group)
                         <div class="items-concerts">
                             <div class="card-image">
-                                <img src="{{$concert->image}}" alt="">
+                                <img src="{{$group->image_group}}" alt="">
                             </div>
                             <div class="content-card">
                                 <div class="title-content">
                                     <h3>
-                                        {{$concert->title}}
+                                        {{$group->title}}
                                     </h3>
-                                </div>
-                                <div class="details-content">
-                                    <p>
-                                        <span class="fw-bold">Ubicacion:</span>
-                                        {{$concert->name}}
-                                    </p>
-                                    <p>
-                                        <span class="fw-bold">Fecha:</span>
-                                        {{$concert->date}}
-                                    </p>
                                 </div>
                                 <div class="desc-content">
                                     <p>
-                                        {{substr($concert->description, 0, 150).'...'}}
+                                        {{$group->description}}
                                     </p>
                                 </div>
                                 <div class="btn-content">
-                                    <a href="{{route('conciertosdetails',['id'=> $concert-> id ])}}">Ver mas</a>
+                                    <a href="">{{__('web.see_all_button')}}</a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                     @endif
-               
-
-
             </div>
         </section>
         <div class="paginator">

@@ -73,7 +73,7 @@
                                 @if(is_null(Auth::User()->image_user))
                                     <i class="fas fa-user-circle" style="color: white; font-size:30px;"></i>
                                 @else
-                                    <img style="border-radius:300px; width:50px;heigth:50px;" src="{{asset(Auth::User()->image_user)}}">
+                                    <img style="border-radius:300px; width:50px;height:50px;" src="{{asset(Auth::User()->image_user)}}">
                                 @endif
                             </a>
                         </div>
