@@ -6,6 +6,8 @@
             <a class="btn btn-secondary" href="{{route('groups.create')}}">Crear grupo</a>
         </div>
     @else
-    
+        @foreach($groups as $group)
+            
+        @endforeach
     @endif
 @endsection

@@ -20,7 +20,8 @@
 </style>
 @extends('layouts.app')
 @section('create_group')
-    {!!Form::open(['url'=>'/groups'])!!}
+    {!!Form::open(['url'=>'/groups', 'enctype'=>'multipart/form-data'])!!}
+    @method('POST')
     <table align="center" class="form_create_group">
         <tr>
             <td></td>

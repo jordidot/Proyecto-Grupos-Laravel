@@ -270,7 +270,7 @@
                 @foreach($groups as $group)
                 <div class="items-artist">
                             <div class="content-img">
-                                <img src="" alt="">
+                                <img src="{{asset($group->image_group)}}">
                             </div>
                             <div class="content-body">
                                 <div class="title">

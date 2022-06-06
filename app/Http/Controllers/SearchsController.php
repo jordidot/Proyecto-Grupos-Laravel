@@ -40,31 +40,30 @@ class SearchsController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => ['required'],
-        //     'descriptiones' => ['required'],
-        //     'descriptionca' => ['required'],
-        //     'descriptionen' => ['required'],
-        //     'image_group' => ['required', 'mimes:jpeg,png'],
-        // ]);
-        if($request->title){
-            $data_title=[
+        $request->validate([
+            'title' => ['required'],
+            'descriptiones' => ['required'],
+            'descriptionca' => ['required'],
+            'descriptionen' => ['required'],
+            'image_group' => ['required', 'mimes:jpeg,png']
+        ]);
+        if($imageGroup=$request->file('image_group')){
+            $id=Auth::User()->group_id;
+            $nom = strtolower(basename($_FILES["image_group"]["name"])); 
+            $ruta = 'images/imageGroup/group'.$id;
+            $rutadb = 'images/imageGroup/group'.$id.'/'.$nom;
+            $ruta1 = public_path('images/imageGroup');
+            $ruta2 = public_path('images/imageGroup/group'.$id);
+            if (!file_exists($ruta1)) {
+                mkdir($ruta1);
+                mkdir($ruta2);
+            }
+            $imageGroup->move($ruta,$nom);
+            $data=[
+                'image_group'=>$rutadb,
                 'title'=>$request->title
             ];
-            $group=Group::create($data_title);
-        }
-        if($request->hasFile('image_group'))
-        {
-            $id=Auth::User()->group_id;
-            $nameImage=strtolower(basename($_FILES["image_group"]['name']));
-            $ruta = 'images/imageGroup/group'.$id.'/';
-            $rutadb = 'images/imageGroup/group'.$id.'/'.$nameImage;
-            mkdir('images/imageGroup/group'.$id);
-            move_uploaded_file($_FILES["image_group"]['tmp_name'],$ruta);
-            Group::create($rutadb);
-        }
-        if($request->description)
-        {
+        
             $data_es=[
                 'description'=>$request->descriptiones
             ];
@@ -77,12 +76,9 @@ class SearchsController extends Controller
                 'description'=>$request->descriptionen
             ];
             $data['en'] = $data_en;
-            $group=GroupTranslation::create($data);
-
-            return view('groups.index');
+            $group=Group::create($data);
+            return view('groups.create');
         }
-
-        return view('groups.create');
     }
 
     /**
@@ -104,7 +100,14 @@ class SearchsController extends Controller
      */
     public function edit($id)
     {
-        
+        $groups=Group::get();
+        $users=User::get();
+        $groupstranslates=GroupTranslation::get();
+        return view('groups.edit')
+        ->with('groups',$groups)
+        ->with('users',$users)
+        ->with('groupstranslates',$groupstranslates);
+
     }
 
     /**
