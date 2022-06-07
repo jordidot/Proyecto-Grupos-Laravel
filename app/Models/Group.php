@@ -15,4 +15,7 @@ class Group extends Model
     public function groupsfavorites(){
         return $this->hasMany('App\Models\GroupFavorite');
     }
+    public function groupstranslations(){
+        return $this->hasMany('App\Models\GroupTranslation');
+    }
 }

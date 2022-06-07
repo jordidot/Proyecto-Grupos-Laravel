@@ -14,15 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-    
     Auth::routes();
     Route::get('/','SectionsController@home')->name('home');
     Route::get('/aboutus', 'SectionsController@aboutus')->name('aboutus');
     Route::get('/home', 'HomeController@index')->name('homeAdmin');
     // Gestion de grupos
-    Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']]);
+    Route::resource('profiles','GroupController',['only' => ['index', 'edit','show', 'update', 'destroy']])->middleware('auth');
     // Crear Grupo
-    Route::resource('groups', 'SearchsController');
+    Route::resource('groups', 'SearchsController')->middleware('auth');
     //Vista grupos
     Route::get('/all-groups', 'GroupsController@index')->name('groups.all');
 
@@ -35,4 +34,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
      Route::get('/conciertos-public', 'SectionsController@conciertos')-> name('conciertos');
      // Conciertos public
      Route::get('/conciertos-public/{id}', 'SectionsController@conciertosdetail')-> name('conciertosdetails');
+     // Añadir comentario
+     Route::get('/add-comment/{id}','SectionsController@commentconcert')-> name('commentConcert');
+     //  Guardaar comentario
+     Route::post('/storeComm','SectionsController@storeComm') -> name('savecomm');
+    //  Route::resource('comments','CommentsController');
 });

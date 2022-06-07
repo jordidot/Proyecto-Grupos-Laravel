@@ -162,6 +162,8 @@
     </div>
     <!-- Pop-Up -->
 
+    @yield('header')
+
     <main role="main" class="main-container">
         @yield('content')
     </main>

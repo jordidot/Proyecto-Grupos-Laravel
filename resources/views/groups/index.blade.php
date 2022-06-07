@@ -5,7 +5,15 @@
         <h3 class="text-white px-2">{{__('web.groups_gestion')}}</h3>
     </div>
     <div class="container h-50 shadow py-3 rounded">
-        @if(count($groups)!= 0)
+        @if(count($groups)== 0)
+        <p class="px-2">{{__('web.nothing')}}</p>
+        <div class="row">
+            <div class="col-6">
+                <a href="{{route('groups.create')}}" class="btn btn-success">{{__('web.create_button')}}</a>
+            </div>
+
+        </div>
+        @else
         <a href="{{route('groups.create')}}" class="btn btn-success mb-2">Crear Grupo</a>
         <table class="table table-striped text-center">
             <thead>
@@ -32,17 +40,8 @@
                     </td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
-        @else
-        <p class="px-2">{{__('web.nothing')}}</p>
-        <div class="row">
-            <div class="col-6">
-                <a href="{{route('conciertos.create')}}" class="btn btn-success">{{__('web.create_button')}}</a>
-            </div>
-
-        </div>
         @endif
     </div>
 </div>

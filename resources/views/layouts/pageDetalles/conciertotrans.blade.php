@@ -42,7 +42,7 @@
                 <div class="menu-navbar-desktop">
                     <a class="menu-item-actived" href="{{route('home')}}">{{__('web.title_home')}}</a>
                     <a href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
-                    <a href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
+                    <a href="">{{__('web.title_groups')}}</a>
                     <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                 </div>
             </div>
@@ -162,144 +162,13 @@
     </div>
     <!-- Pop-Up -->
 
-    <!-- Header -->
-    <header class="header-container">
-        <div class="conatiner-content-header">
-            <div class="conatiner-info-hader">
-                <div class="info-title">
-                    <h2>
-                    {{__('web.title_image_home')}}
-                    </h2>
-                </div>
-                <div class="info-desc">
-                    <p>
-                    {{__('web.description_image_home')}}
-                    </p>
-                </div>
-                <div class="header-btn-info">
-                    <a href="">{{__('web.button_image_buy')}}</a>
-                    <a href="">{{__('web.button_image_booking')}}</a>
-                </div>
-            </div>
-        </div>
-    </header>
+    @yield('header')
 
     <main role="main" class="main-container">
-
-        <!-- Conciertos -->
-        <section class="all-concerts">
-            <div class="title-view-all">
-                <div class="title-section">
-                    <h2>{{__('web.title_concerts')}}</h2>
-                </div>
-                <div class="view-all">
-                    <h4>
-                        <a href="">
-                        {{__('web.see_all_button')}}
-                            <i class="fas fa-angle-right"></i>
-                        </a>
-                    </h4>
-                </div>
-            </div>
-            <div class="container-flex-concerts">
-                <!-- Items -->
-                @if(count($concerts)==0)
-                <p>No hay ningún dato que mostrar.</p>
-                @else
-                    @foreach($concerts as $concert)
-                        <div class="items-concerts">
-                            <div class="card-image">
-                                <img src="{{asset($concert->image)}}" alt="">
-                            </div>
-                            <div class="content-card">
-                                <div class="title-content">
-                                    <h3>
-                                        {{$concert->title}}
-                                    </h3>
-                                </div>
-                                <div class="desc-content">
-                                    <p>
-                                        {{substr($concert->description, 0, 150).'...'}}
-                                    </p>
-                                </div>
-                                <div class="btn-content">
-                                    <a href="#">{{__('web.see_more_button')}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-        </section>
-
-        <!-- Cta unete -->
-        <section class="cta">
-            <div class="cta-content">
-                <div class="cta-title">
-                    <h2>{{__('web.title_join_up')}}</h2>
-                </div>
-                <div class="cta-desc">
-                    <p>
-                    {{__('web.description_join_up')}}
-                    </p>
-                </div>
-                <div class="cta-btn">
-                    <a href="">{{__('web.register')}}</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Artisas -->
-        <section class="section-all-artist">
-            <div class="section-head">
-                <div class="title-section">
-                    <h2>{{__('web.title_groups')}}</h2>
-                </div>
-                <div class="btn-view">
-                    <a href="">
-                    {{__('web.see_all_button')}}
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="container-artist-flex">
-                <!-- Items -->
-                @if(count($groups)==0)
-                    <p>No se puede mostrar ningún dato.</p>
-                @else
-                @foreach($groups as $group)
-                <div class="items-artist">
-                            <div class="content-img">
-                                <img src="{{asset($group->image_group)}}">
-                            </div>
-                            <div class="content-body">
-                                <div class="title">
-                                    <h3>
-                                        {{$group->title}}
-                                        <i class="fas fa-check-circle text-color-verify"></i>
-                                    </h3>
-                                </div>
-                                <div class="total-followers">
-                                    <p>
-                                        {{__('web.followers')}} @foreach($groupsfavorites as $groupfavorite){{$groupfavorite->id}}@endforeach
-                                    </p>
-                                </div>
-                                <div class="desc">
-                                    <p>
-                                        {{$group->description}}
-                                    </p>
-                                </div>
-                                <div class="btn-view-more">
-                                    <a href="">{{__('web.see_more_button')}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-        </section>
+        @yield('content')
     </main>
-    <!-- Scripts -->
-    <script src="{{asset('js/main.js')}}"></script>
-</body>
+
+     <!-- Scripts -->
+     <script src="{{asset('js/main.js')}}"></script>
+    </body>
 </html>
