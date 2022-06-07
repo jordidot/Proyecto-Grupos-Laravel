@@ -76,7 +76,7 @@
 
 <div class="info-concierto">
     <div class="title-section">
-        <h3>Info</h3>
+        <h3>{{__('web.information_title')}}</h3>
     </div>
     <div class="card-content">
         @if(count($concertsfavorites)==0)
@@ -161,13 +161,13 @@
 <div class="container-comentarios">
     <div class="container-primary-flex">
         <div class="title-section">
-            <h3>Commentarios</h3>
+            <h3>{{__('web.comments_title')}}</h3>
         </div>
         @if (Auth::User())
         @if (Auth::User()-> is_group == 0 )
             
                 <div class="btn-add-comment">
-                    <a href="{{route('commentConcert', ['id' => $id])}}" id="addComm">Añadir Comentario</a>
+                    <a href="{{route('commentConcert', ['id' => $id])}}" id="addComm">{{__('web.add_comment_button')}}</a>
                 </div>
         @endif    
         @endif

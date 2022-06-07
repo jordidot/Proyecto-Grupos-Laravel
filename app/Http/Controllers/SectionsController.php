@@ -93,4 +93,7 @@ class SectionsController extends Controller
            $comment = UserComment::create($data);
            return redirect() -> route('conciertosdetails', ['id' => $request->idConcert]);
     }
+    public function buyticket(){
+        return view('maintenance');
+    }
 }

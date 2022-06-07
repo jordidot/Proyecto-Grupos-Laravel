@@ -177,8 +177,8 @@
                     </p>
                 </div>
                 <div class="header-btn-info">
-                    <a href="">{{__('web.button_image_buy')}}</a>
-                    <a href="">{{__('web.button_image_booking')}}</a>
+                    <a href="{{route('buyticket')}}">{{__('web.button_image_buy')}}</a>
+                    <a href="{{route('buyticket')}}">{{__('web.button_image_booking')}}</a>
                 </div>
             </div>
         </div>
@@ -244,7 +244,7 @@
                     </p>
                 </div>
                 <div class="cta-btn">
-                    <a href="">{{__('web.register')}}</a>
+                    <a href="{{route('register')}}">{{__('web.register')}}</a>
                 </div>
             </div>
         </section>
