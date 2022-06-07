@@ -11,6 +11,7 @@
         'image_user_profile'=>'Profile picture:',
         'rol'=>'Your rol:',
         'eliminate'=>'Eliminate',
+        'not_like'=>"Don't like",
         'like'=>'Like',
         'create_button'=>'Create',
         'modificate_button'=>'Modificate',

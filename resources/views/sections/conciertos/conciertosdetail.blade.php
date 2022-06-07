@@ -79,9 +79,15 @@
         <h3>Info</h3>
     </div>
     <div class="card-content">
-        {{-- <div class="likes-concert">
-            <p><span class="fw-bold">Me gusta:</span> 400</p>
-        </div> --}}
+        @if(count($concertsfavorites)==0)
+            <div class="likes-concert">
+                <p><span class="fw-bold">{{__('web.like')}}:</span>0</p>
+            </div>
+        @else
+            <div class="likes-concert">
+                <p><span class="fw-bold">{{__('web.like')}}:</span>{{count($concertsfavorites)}}</p>
+            </div>
+        @endif
         <div class="horarios-concert">
             @foreach ($concert as $concerto)
                 <p><span class="fw-bold">Horarios:</span> {{$concerto->date}} a las {{$concerto->schedule}}h</p> 
@@ -101,12 +107,13 @@
     </div>
     <div class="btn-follow-concert">
         @if(count($concertsfavorites)==0)
-    
+            @foreach ($concert as $concerto)
+                @include('sections.conciertos.followsSure')
+            @endforeach
+        @else
             @foreach ($concert as $concerto)
                 @include('sections.conciertos.follows')
             @endforeach
-        @else
-            No me gusta
         @endif
     </div>
 </div>

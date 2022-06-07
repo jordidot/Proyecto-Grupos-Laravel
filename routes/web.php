@@ -40,5 +40,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
      Route::post('/storeComm','SectionsController@storeComm') -> name('savecomm');
     
     // Follow and unfollow concert
-    Route::put('/follows/{id}','SectionsController@storefollows') -> name('follows.store');
+    Route::resource('follows', 'GroupsfavoritesController');
 });

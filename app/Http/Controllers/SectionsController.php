@@ -93,15 +93,4 @@ class SectionsController extends Controller
            $comment = UserComment::create($data);
            return redirect() -> route('conciertosdetails', ['id' => $request->idConcert]);
     }
-
-    public function storefollows(Request $request, $id)
-    {
-        
-        $data=ConcertFavorite::find($id);
-        $data->concert_id=$id;
-        $data->user_id=Auth::User()->id;
-        $data->save();
-        return redirect('/');
-        
-    }
 }

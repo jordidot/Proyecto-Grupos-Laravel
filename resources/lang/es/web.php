@@ -61,6 +61,7 @@
         'close_session_button'=>'Cerrar sessión',
         'identificate'=>'Identificate',
         'like'=>'Me gusta',
+        'not_like'=>"No me gusta",
         'user_title_popup'=>'Como usuario',
         'group_title_popup'=>'Como grupo',
         'register_user_title'=>"Registro de usuario",

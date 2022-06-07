@@ -10,6 +10,7 @@
         'title_home'=>'Inici',
         'eliminate'=>'Eliminar',
         'like'=>"M'agrada",
+        'not_like'=>"No m'agrada",
         'title_concerts'=>'Concerts',
         'title_about_us'=>'Qui som',
         'title_groups'=>'Grups',
