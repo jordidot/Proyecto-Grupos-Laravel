@@ -78,7 +78,7 @@ class SearchsController extends Controller
             ];
             $data['en'] = $data_en;
             $group=Group::create($data);
-            return view('groups.index');
+            return redirect('/groups');
         }
     }
 

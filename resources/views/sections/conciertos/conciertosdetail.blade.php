@@ -99,12 +99,12 @@
             @endforeach
         </div>
     </div>
-    {{-- <div class="btn-follow-concert">
-        <a href="">
+    <div class="btn-follow-concert">
+        <a href="{{route('addFollow',['id' => $id])}}">
             <i class="fas fa-heart"></i>
             Me Gusta
         </a>
-    </div> --}}
+    </div>
 </div>
 
 <div class="conciertos-relacionados">

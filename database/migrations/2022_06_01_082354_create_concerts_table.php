@@ -37,6 +37,13 @@ class CreateConcertsTable extends Migration
             $table->string('concert_id');
             $table->timestamps();
         });
+        Schema::create('concert_favorites', function (Blueprint $table) {
+            $table->id();
+            $table->integer('concert_id');
+            $table->integer('user_id');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
     /**
      * Reverse the migrations.

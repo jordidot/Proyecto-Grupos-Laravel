@@ -9,6 +9,7 @@ use App\Models\GroupFavorite;
 use App\Models\Concert;
 use App\Models\City;
 use App\Models\UserComment;
+use App\Models\ConcertTranslation;
 use App\User;
 
 
@@ -33,8 +34,8 @@ class SectionsController extends Controller
             $groups=Group::where('title','LIKE',"%".$request->searchconcert."%")->get();
             $concerts=ConcertTranslation::where('title','LIKE',"%".$request->searchconcert."%")->get();
             return view('sections.search')
-            ->with('groups', $groups)
-            ->with('concerts', $concerts)
+            -> with('groups', $groups)
+            -> with('concerts', $concerts)
             -> with('query',$query);
         }
         elseif (count(Group::get())==0)
@@ -87,5 +88,11 @@ class SectionsController extends Controller
            ];
            $comment = UserComment::create($data);
            return redirect() -> route('conciertosdetails', ['id' => $request->idConcert]);
+    }
+
+    public function addFollow($id)
+    {
+        return view('sections.conciertos.addFollow')
+        -> with('id', $id);
     }
 }

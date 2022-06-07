@@ -38,5 +38,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
      Route::get('/add-comment/{id}','SectionsController@commentconcert')-> name('commentConcert');
      //  Guardaar comentario
      Route::post('/storeComm','SectionsController@storeComm') -> name('savecomm');
-    //  Route::resource('comments','CommentsController');
+    
+    // Follow and unfollow concert
+    Route::get('/add-follow/{id}','SectionsController@addFollow') -> name('addFollow');
 });
