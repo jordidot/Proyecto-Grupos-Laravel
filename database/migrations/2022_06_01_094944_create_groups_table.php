@@ -17,7 +17,7 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('image_group');
-            $table->string('banner_group');
+            $table->string('banner_group')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
