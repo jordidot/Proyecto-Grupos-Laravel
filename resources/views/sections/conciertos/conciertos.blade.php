@@ -212,7 +212,7 @@
                                     </p>
                                 </div>
                                 <div class="btn-content">
-                                    <a href="{{route('conciertosdetails',['id'=> $concert-> id ])}}">Ver mas</a>
+                                    <a href="{{route('conciertosdetails',['id' => $concert-> id ])}}">Ver mas</a>
                                 </div>
                             </div>
                         </div>

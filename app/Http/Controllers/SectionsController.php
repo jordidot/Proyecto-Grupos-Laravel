@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use App\Models\GroupFavorite;
 use App\Models\Concert;
+use App\Models\UserComment;
 use App\User;
+
 
 class SectionsController extends Controller
 {
@@ -49,6 +52,23 @@ class SectionsController extends Controller
     }
     public function conciertosdetail($id)
     {
-        return view('sections.conciertos.conciertosdetail');
+        $concert = Concert::where('id',$id)->get();
+        return view('sections.conciertos.conciertosdetail')
+        -> with('concert',$concert);
+    }
+    public function commentConcert($id){
+        return view('sections.conciertos.addcomm')
+        -> with('id',$id);
+    }
+
+    public function storeComm(Request $request)
+    {
+           $data = [
+               "user_id"    => Auth::User()->id,
+               "concert_id" => $request -> idConcert,
+               "comment"    => $request -> addComm
+           ];
+           $comment = UserComment::create($data);
+           return redirect() -> route('conciertosdetails', ['id' => $request->idConcert]);
     }
 }

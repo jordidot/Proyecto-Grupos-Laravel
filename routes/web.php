@@ -35,4 +35,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
      Route::get('/conciertos-public', 'SectionsController@conciertos')-> name('conciertos');
      // Conciertos public
      Route::get('/conciertos-public/{id}', 'SectionsController@conciertosdetail')-> name('conciertosdetails');
+     // Añadir comentario
+     Route::get('/add-comment/{id}','SectionsController@commentconcert')-> name('commentConcert');
+     //  Guardaar comentario
+     Route::post('/storeComm','SectionsController@storeComm') -> name('savecomm');
+    //  Route::resource('comments','CommentsController');
 });

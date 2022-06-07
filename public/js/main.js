@@ -5,7 +5,6 @@ navbar = document.querySelector('.navbar-container');
 closeModalHome = document.querySelector('.close-modal-register');
 containerModal = document.getElementById('popup');
 btnOpenPopUP = document.querySelectorAll('.openpopup');
-
 // Open Modal menu
 iconMenu.addEventListener('click',function(){
     popupMenu.classList.toggle("menu-actived")
