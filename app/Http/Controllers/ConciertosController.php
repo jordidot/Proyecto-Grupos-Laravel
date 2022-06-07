@@ -167,8 +167,20 @@ class ConciertosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-
+        if($request->selectCity)
+        {
+            $data=Concert::find($id);
+            $data->translate('es')->title=$request->titleConcierto_es;
+            $data->translate('es')->description=$request->descconcierto_es;
+            $data->translate('ca')->title=$request->titleConcierto_ca;
+            $data->translate('ca')->description=$request->descconcierto_ca;
+            $data->translate('en')->title=$request->titleConcierto_en;
+            $data->translate('en')->description=$request->descconcierto_en;
+            $data->schedule=$request->horarioConcierto;
+            $data->date=$request->fechaConcierto;
+            $data->city=$request->selectCity;
+            $data->save();
+        }
         if($imageUser=$request->file('imagenConcierto'))
         {
             $nameImage=strtolower(basename($_FILES["imagenConcierto"]['name']));
@@ -180,11 +192,11 @@ class ConciertosController extends Controller
 
             $imageUser->move($ruta,$nameImage);
 
-            $dataImage= Concert::where('id',$id);
+            $dataImage= Concert::find($id);
             $dataImage->image=$rutadb;
             $dataImage->save();
-            return redirect('conciertos/'.$id.'/edit');
         }
+        return redirect('conciertos/'.$id.'/edit');
     }
 
     /**

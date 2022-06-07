@@ -27,7 +27,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="title">{{__('web.name_group')}}</label>
-            {!!Form::text('tile',$group->title,['class'=>'form-control'])!!}
+            {!!Form::text('title',$group->title,['class'=>'form-control'])!!}
         </div>
         @foreach($groupes as $group)
         <div class="mb-3">
