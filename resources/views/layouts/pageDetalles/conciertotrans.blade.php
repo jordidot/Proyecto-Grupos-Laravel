@@ -23,7 +23,7 @@
 
 
     <!-- Navbar -->
-    <div class="navbar-container" style="background: #000 !important;">
+    <div class="navbar-container">
     <div class="lol">
                     @guest
                     <a href="{{url('/es')}}">ES</a>/<a href="{{url('/ca')}}">CA</a>/<a href="{{url('/en')}}">EN</a>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400,700;900&display=swap);
 
 * {
   margin: 0;
@@ -1114,7 +1114,6 @@ html {
   width: 100%;
   min-height: 350px;
   background-color: rgba(0, 0, 0, 0.559);
-  background-image: url(/images/banner-header.jpg?99152cbfcc2106bb060bbd3b760805ea);
   background-size: cover;
   background-position: center 150%;
   background-blend-mode: overlay;

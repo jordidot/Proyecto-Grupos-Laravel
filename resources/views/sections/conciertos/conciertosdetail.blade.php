@@ -1,9 +1,26 @@
-@extends('layouts.pageDetalles.concierto')
+@extends('layouts.pageDetalles.conciertotrans')
 
+@section('header')
+<header class="container-info-concert" style=" background-image: url(../images/banner-header.jpg);">
+    <div class="content-info">
+        <div class="horario-ubicacion">
+            <h3>23/04/32 - Palau Sant Jordi</h3>
+        </div>
+        <div class="title-concierto">
+            <h2>Entradas para el concierto festival colors</h2>
+        </div>
+    </div>
+</header>
+@endsection
 
 @section('content')
+{{-- <pre>
+    {{print_r($concert)}}
+</pre>  --}}
+
+<br>
     
-<div class="cartel-artistas-invitados">
+{{-- <div class="cartel-artistas-invitados">
     <div class="title-section">
         <h3>Cartel</h3>
     </div>
@@ -42,16 +59,16 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="info-concierto">
     <div class="title-section">
         <h3>Info</h3>
     </div>
     <div class="card-content">
-        <div class="likes-concert">
+        {{-- <div class="likes-concert">
             <p><span class="fw-bold">Me gusta:</span> 400</p>
-        </div>
+        </div> --}}
         <div class="horarios-concert">
             <p><span class="fw-bold">Horarios:</span> 23/04/32 a las 22:00h </p>
         </div>
@@ -65,12 +82,12 @@
                 accusamus blanditiis repudiandae.</p>
         </div>
     </div>
-    <div class="btn-follow-concert">
+    {{-- <div class="btn-follow-concert">
         <a href="">
             <i class="fas fa-heart"></i>
             Me Gusta
         </a>
-    </div>
+    </div> --}}
 </div>
 
 <div class="conciertos-relacionados">
@@ -112,72 +129,7 @@
                 </div>
             </div>
         </div>
-        <!-- Items -->
-        <div class="items-concerts">
-            <div class="card-image">
-                <img src="./assets/images/adam-whitlock-I9j8Rk-JYFM-unsplash.jpg" alt="">
-            </div>
-            <div class="content-card">
-                <div class="title-content">
-                    <h3>
-                        Festival Don pinturas
-                    </h3>
-                </div>
-                <div class="details-content">
-                    <p>
-                        <span class="fw-bold">Ubicacion:</span>
-                        Madrid - Santiago Bernabeú
-                    </p>
-                    <p>
-                        <span class="fw-bold">Fecha:</span>
-                        26/02/2020
-                    </p>
-                </div>
-                <div class="desc-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et vestibulum libero.
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                        himenaeos
-                    </p>
-                </div>
-                <div class="btn-content">
-                    <a href="#">Ver mas</a>
-                </div>
-            </div>
-        </div>
-        <!-- Items -->
-        <div class="items-concerts">
-            <div class="card-image">
-                <img src="./assets/images/adam-whitlock-I9j8Rk-JYFM-unsplash.jpg" alt="">
-            </div>
-            <div class="content-card">
-                <div class="title-content">
-                    <h3>
-                        Festival Don pinturas
-                    </h3>
-                </div>
-                <div class="details-content">
-                    <p>
-                        <span class="fw-bold">Ubicacion:</span>
-                        Madrid - Santiago Bernabeú
-                    </p>
-                    <p>
-                        <span class="fw-bold">Fecha:</span>
-                        26/02/2020
-                    </p>
-                </div>
-                <div class="desc-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et vestibulum libero.
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                        himenaeos
-                    </p>
-                </div>
-                <div class="btn-content">
-                    <a href="#">Ver mas</a>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
@@ -187,9 +139,16 @@
         <div class="title-section">
             <h3>Commentarios</h3>
         </div>
-        <div class="btn-add-comment">
-            <a href="">Añadir Comentario</a>
-        </div>
+        @if (Auth::User())
+        @if (Auth::User()-> is_group == 0 )
+            @foreach ($concert as $concerto)
+                <div class="btn-add-comment">
+                    <a href="{{route('commentConcert', ['id' => $concerto->id])}}" id="addComm">Añadir Comentario</a>
+                </div>
+            @endforeach
+        @endif    
+        @endif
+        
     </div>
 
     <div class="container-comentarios-flex">
