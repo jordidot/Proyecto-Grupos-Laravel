@@ -124,22 +124,33 @@ class SearchsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request->title)
+        {
+        $data=Group::find($id);
+        $data->translate('es')->description=$request->descriptiones;
+        $data->translate('ca')->description=$request->descriptionca;
+        $data->translate('en')->description=$request->descriptionen;
+        $data->title=$request->title;
+        $data->save();
+        }
+            
         if($imageUser=$request->file('image_group'))
         {
             $nameImage=strtolower(basename($_FILES["image_group"]['name']));
-            $ruta = 'images/imageUsers/user'.$id.'/';
-            $rutadb = 'images/imageUsers/user'.$id.'/'.$nameImage;
+            $ruta = 'images/imageGroup/group'.$id.'/';
+            $rutadb = 'images/imageGroup/group'.$id.'/'.$nameImage;
             
-            if(!(public_path('images/imageUsers/user'.$id))){
+            if(!(public_path('images/imageGroups/group'.$id))){
             mkdir('images/imageUsers/user'.$id);}
 
             $imageUser->move($ruta,$nameImage);
 
-            $dataImage=User::find($id);
-            $dataImage->image_user=$rutadb;
+            $dataImage=Group::find($id);
+            $dataImage->image_group=$rutadb;
             $dataImage->save();
-            return redirect('profiles/'.$id.'/edit');
         }
+        return redirect('groups/'.$id.'/edit');
+        
     }
 
     /**
