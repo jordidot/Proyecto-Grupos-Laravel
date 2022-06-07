@@ -100,16 +100,20 @@
         </div>
     </div>
     <div class="btn-follow-concert">
-        <a href="{{route('addFollow',['id' => $id])}}">
-            <i class="fas fa-heart"></i>
-            Me Gusta
-        </a>
+        @if(count($concertsfavorites)==0)
+    
+            @foreach ($concert as $concerto)
+                @include('sections.conciertos.follows')
+            @endforeach
+        @else
+            No me gusta
+        @endif
     </div>
 </div>
 
 <div class="conciertos-relacionados">
     <div class="title-section">
-        <h3>Conciertos Relacionados</h3>
+        <h3>{{__('web.related_concerts')}}</h3>
     </div>
     <div class="container-flex-concerts">
         @foreach ($concertRelation as $concert)
@@ -126,8 +130,8 @@
                     </div>
                     <div class="details-content">
                         <p>
-                            <span class="fw-bold">Fecha:</span>
-                            {{$concert->schedule}}
+                            <span class="fw-bold">{{__('web.schedule_title')}}:</span>
+                            {{$concert->date}}
                         </p>
                     </div>
                     <div class="desc-content">
@@ -136,7 +140,7 @@
                         </p>
                     </div>
                     <div class="btn-content">
-                        <a href="#">Ver mas</a>
+                        <a href="{{route('conciertosdetails', ['id'=>$concert->id])}}">{{__('web.see_more_button')}}</a>
                     </div>
                 </div>
             </div>

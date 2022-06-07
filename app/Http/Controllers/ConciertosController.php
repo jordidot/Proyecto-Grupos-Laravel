@@ -207,6 +207,7 @@ class ConciertosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Concert::destroy($id);
+        return redirect('/conciertos');
     }
 }

@@ -8,6 +8,8 @@
         'add_button'=>'Afegir',
         'title_header'=>'CONCERTS',
         'title_home'=>'Inici',
+        'eliminate'=>'Eliminar',
+        'like'=>"M'agrada",
         'title_concerts'=>'Concerts',
         'title_about_us'=>'Qui som',
         'title_groups'=>'Grups',

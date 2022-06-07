@@ -15,7 +15,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('/css/styles.css')}}?v=echo time();">
     <link rel="stylesheet" href="{{asset('/css/stylejordi.css')}}">
-    <!-- Styles -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -43,7 +45,7 @@
                 <div class="menu-navbar-desktop">
                     <a class="menu-item-actived" href="{{route('home')}}">{{__('web.title_home')}}</a>
                     <a href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
-                    <a href="">{{__('web.title_groups')}}</a>
+                    <a href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
                     <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                 </div>
             </div>

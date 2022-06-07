@@ -10,6 +10,8 @@
         'city_profile'=>'Your city:',
         'image_user_profile'=>'Profile picture:',
         'rol'=>'Your rol:',
+        'eliminate'=>'Eliminate',
+        'like'=>'Like',
         'create_button'=>'Create',
         'modificate_button'=>'Modificate',
         'modificate_title'=>'Modificate profile: ',

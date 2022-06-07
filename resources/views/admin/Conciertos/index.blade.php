@@ -32,15 +32,20 @@
                       <td>{{$concierto->date}}</td>
                       <td>Thornton</td>
                       <td>
-                          {{-- <a href="" class=" py-1 btn btn-primary"><i class="fas fa-eye"></i></a> --}}
+    
                           
                             <form action="{{route('conciertos.edit',['concierto' => $concierto->id])}}" method="PUT">
                               <a href="{{route('conciertos.edit',['concierto' => $concierto->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                             </form>
+                            {!!Form::open(['method'=>'DELETE', 'url'=>'/conciertos/'.$concierto->id])!!}
+                              <input class="btn btn-outline-primary" type="submit" value="{{__('web.eliminate')}}">
+                            {!!Form::close()!!}
       
                       </td>
                     </tr>
+      
                 @endforeach
+                
                
               </tbody>
             </table>

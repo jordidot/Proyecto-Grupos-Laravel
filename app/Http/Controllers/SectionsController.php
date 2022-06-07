@@ -8,6 +8,8 @@ use App\Models\Group;
 use App\Models\GroupFavorite;
 use App\Models\Concert;
 use App\Models\City;
+use App\Models\ConcertFavorite;
+
 use App\Models\UserComment;
 use App\Models\ConcertTranslation;
 use App\User;
@@ -58,6 +60,7 @@ class SectionsController extends Controller
     }
     public function conciertosdetail($id)
     {
+        $concertsfavorites=ConcertFavorite::get();
         $concert = Concert::where('id',$id)->get();
         $comentarios = UserComment::select('users.*','users_comments.comment')
         -> join('users','users.id','users_comments.user_id')
@@ -68,6 +71,7 @@ class SectionsController extends Controller
         }        
 
         return view('sections.conciertos.conciertosdetail')
+        ->with('concertsfavorites', $concertsfavorites)
         -> with('concert',$concert)
         -> with('concertRelation',$concertRelation)
         -> with('nameCityConcert',$nameCityConcert)
@@ -90,9 +94,14 @@ class SectionsController extends Controller
            return redirect() -> route('conciertosdetails', ['id' => $request->idConcert]);
     }
 
-    public function addFollow($id)
+    public function storefollows(Request $request, $id)
     {
-        return view('sections.conciertos.addFollow')
-        -> with('id', $id);
+        
+        $data=ConcertFavorite::find($id);
+        $data->concert_id=$id;
+        $data->user_id=Auth::User()->id;
+        $data->save();
+        return redirect('/');
+        
     }
 }

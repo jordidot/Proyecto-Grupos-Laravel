@@ -161,6 +161,7 @@ class SearchsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Group::destroy($id);
+        return redirect('/groups');
     }
 }

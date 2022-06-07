@@ -31,11 +31,14 @@
                     <td>{{$group->description}}</td>
                     <td><img style="width:100px;height:100px;" src="{{asset($group->image_group)}}" alt="Imagen grupo"></td>
                     <td>
-                        <a href="" class=" py-1 btn btn-primary"><i class="fas fa-eye"></i></a>
-
                         <form action="{{route('groups.edit',['group' => $group->id])}}" method="PUT">
                             <a href="{{route('groups.edit',['group' => $group->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                         </form>
+                        {!!Form::open(['method'=>'DELETE', 'url'=>'/groups/'.$group->id])!!}
+                            <input class="btn btn-outline-primary" type="submit" value="{{__('web.eliminate')}}">
+                        {!!Form::close()!!}
+                        
+                        
 
                     </td>
                 </tr>

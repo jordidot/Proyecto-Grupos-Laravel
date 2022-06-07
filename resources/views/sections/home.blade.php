@@ -223,7 +223,7 @@
                                     </p>
                                 </div>
                                 <div class="btn-content">
-                                    <a href="#">{{__('web.see_more_button')}}</a>
+                                    <a href="{{route('conciertosdetails', ['id'=>$concert->id])}}">{{__('web.see_more_button')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -290,7 +290,7 @@
                                     </p>
                                 </div>
                                 <div class="btn-view-more">
-                                    <a href="">{{__('web.see_more_button')}}</a>
+                                    <a href="{{route('conciertosdetails', ['id'=>$concert->id])}}">{{__('web.see_more_button')}}</a>
                                 </div>
                             </div>
                         </div>
