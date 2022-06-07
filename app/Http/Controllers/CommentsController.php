@@ -15,9 +15,7 @@ class CommentsController extends Controller
     public function index()
     {
 
-        // $concert = Concert::where('id',$id)->get();
-        // return view('sections.conciertos.conciertosdetail')
-        // -> with('concert',$concert);
+      
     }
 
     /**
@@ -27,8 +25,7 @@ class CommentsController extends Controller
      */
     public function create()
     { 
-        // return view('sections.conciertos.addcomm')
-        // -> with('id',$id);
+       
     }
 
     /**
@@ -39,13 +36,6 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        // $userComment = new UserComment();
-        // $userComment->user_id = Auth::User() -> id;
-        // $userComment->concert_id = $request -> idConcert;
-        // $userComment->comment = $request -> addComm;
-        // $userComment->save();
-
-        // return redirect('conciertosdetails', ['id' => $request -> idConcert]);
        
     }
 

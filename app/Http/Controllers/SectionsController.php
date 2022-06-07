@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use App\Models\GroupFavorite;
 use App\Models\Concert;
+use App\Models\City;
 use App\Models\UserComment;
 use App\User;
 
@@ -53,8 +54,20 @@ class SectionsController extends Controller
     public function conciertosdetail($id)
     {
         $concert = Concert::where('id',$id)->get();
+        $comentarios = UserComment::select('users.*','users_comments.comment')
+        -> join('users','users.id','users_comments.user_id')
+        -> where('concert_id',$id)->orderBy('users_comments.updated_at','desc')->get();
+        foreach ($concert as $concer) {
+            $concertRelation = Concert::where('city',$concer->city)->limit(3)->get();
+            $nameCityConcert = City::where('id', $concer->city)->get();
+        }        
+
         return view('sections.conciertos.conciertosdetail')
-        -> with('concert',$concert);
+        -> with('concert',$concert)
+        -> with('concertRelation',$concertRelation)
+        -> with('nameCityConcert',$nameCityConcert)
+        -> with('comentarios',$comentarios)
+        -> with('id',$id);
     }
     public function commentConcert($id){
         return view('sections.conciertos.addcomm')
