@@ -209,7 +209,7 @@
                     @foreach($concerts as $concert)
                         <div class="items-concerts">
                             <div class="card-image">
-                                <img src="{{asset($concert->image)}}" alt="">
+                                <img src="{{asset($concert->image)}}">
                             </div>
                             <div class="content-card">
                                 <div class="title-content">
