@@ -78,7 +78,7 @@ class SearchsController extends Controller
             ];
             $data['en'] = $data_en;
             $group=Group::create($data);
-            return view('groups.create');
+            return view('groups.index');
         }
     }
 
@@ -101,13 +101,17 @@ class SearchsController extends Controller
      */
     public function edit($id)
     {
-        $groups=Group::get();
+        $groups=Group::where('id',$id)->get();
         $users=User::get();
-        $groupstranslates=GroupTranslation::get();
+        $groupes=GroupTranslation::where('locale', 'es')->where('group_id', $id)->get();
+        $groupca=GroupTranslation::where('locale', 'ca')->where('group_id', $id)->get();
+        $groupen=GroupTranslation::where('locale', 'en')->where('group_id', $id)->get();
         return view('groups.edit')
+        ->with('groupes', $groupes)
+        ->with('groupca', $groupca)
+        ->with('groupen', $groupen)
         ->with('groups',$groups)
-        ->with('users',$users)
-        ->with('groupstranslates',$groupstranslates);
+        ->with('users',$users);
 
     }
 
@@ -120,7 +124,22 @@ class SearchsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($imageUser=$request->file('image_group'))
+        {
+            $nameImage=strtolower(basename($_FILES["image_group"]['name']));
+            $ruta = 'images/imageUsers/user'.$id.'/';
+            $rutadb = 'images/imageUsers/user'.$id.'/'.$nameImage;
+            
+            if(!(public_path('images/imageUsers/user'.$id))){
+            mkdir('images/imageUsers/user'.$id);}
+
+            $imageUser->move($ruta,$nameImage);
+
+            $dataImage=User::find($id);
+            $dataImage->image_user=$rutadb;
+            $dataImage->save();
+            return redirect('profiles/'.$id.'/edit');
+        }
     }
 
     /**
