@@ -1042,6 +1042,7 @@ html {
   width: 100%;
   min-height: 350px;
   background-color: rgba(0, 0, 0, 0.559);
+  background-image: url(../images/banner-header.jpg);
   background-size: cover;
   background-position: center 150%;
   background-blend-mode: overlay;
@@ -1277,5 +1278,90 @@ html {
   p
   {
     line-height: 25px;
+  }
+}
+
+
+
+/*
+    * =========================
+    * Styles Page Detalle Group
+    * =========================
+*/
+
+
+.banner-group
+{
+  width: 100%;
+  min-height: 400px;
+  background-color: #1c1c1c;
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: overlay;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 150px;
+  
+}
+
+.img-group{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  position: absolute;
+  bottom: -100px;
+  border: 4px solid #fff;
+  img
+  {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
+    -ms-border-radius: inherit;
+    -o-border-radius: inherit;
+    object-fit: cover;
+  }
+}
+
+
+@media screen and (min-width: 768px)
+{
+  .img-group{
+    width: 225px;
+    height: 225px;
+    bottom: -125px;
+  }
+  .banner-group{
+    min-height: 300px;
+  }
+}
+
+.info-group
+{
+  padding: 10px 10px;
+  margin-top: 60px;
+  text-align: center;
+}
+.desc-group p{
+  color: $colorText;
+}
+.info-group div{
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px)
+{
+  .desc-group
+  {
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 20px;
   }
 }
