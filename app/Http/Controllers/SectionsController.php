@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Group;
 use App\Models\GroupFavorite;
 use App\Models\Concert;
+use App\Models\ConcertTranslation;
 use App\Models\UserComment;
 use App\User;
 
@@ -29,7 +30,11 @@ class SectionsController extends Controller
         if($request->searchconcert)
         {
             $query = $request->searchconcert;
+            $groups=Group::where('title','LIKE',"%".$request->searchconcert."%")->get();
+            $concerts=ConcertTranslation::where('title','LIKE',"%".$request->searchconcert."%")->get();
             return view('sections.search')
+            ->with('groups', $groups)
+            ->with('concerts', $concerts)
             -> with('query',$query);
         }
         elseif (count(Group::get())==0)
