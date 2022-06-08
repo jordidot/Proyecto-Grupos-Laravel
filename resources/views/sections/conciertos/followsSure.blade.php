@@ -3,7 +3,7 @@
     
     <button type="submit">
         <i class="fas fa-heart"></i>
-        {{__('web.not_like')}}
+        {{__('web.like')}}
     </button>
 
     {!!Form::close()!!}

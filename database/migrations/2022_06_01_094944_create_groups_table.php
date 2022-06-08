@@ -25,7 +25,7 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->integer('group_id');
             $table->string('locale');
-            $table->string('description');
+            $table->mediumText('description');
             $table->timestamps();
         });
         Schema::create('groups_favorites', function (Blueprint $table) {

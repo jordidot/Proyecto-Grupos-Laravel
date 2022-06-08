@@ -28,7 +28,7 @@ class CreateConcertsTable extends Migration
             $table->integer('concert_id');
             $table->string('locale');
             $table->string('title');
-            $table->string('description');
+            $table->mediumText('description');
             $table->timestamps();
         });
         Schema::create('concerts_groups', function (Blueprint $table) {

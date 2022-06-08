@@ -40,12 +40,7 @@ class SectionsController extends Controller
             -> with('concerts', $concerts)
             -> with('query',$query);
         }
-<<<<<<< HEAD
         elseif (count(Group::get())==0)
-=======
-
-        if(is_null($request->searchconcert) || $request->searchconcert === ' ')
->>>>>>> cambios-css
         {
             return view('sections.home');
         }
@@ -100,18 +95,5 @@ class SectionsController extends Controller
     }
     public function buyticket(){
         return view('maintenance');
-    }
-    public function groupsdetail($id)
-    {
-        $groupsfavorites=GroupFavorite::get();
-        $groups = Group::where('id',$id)->get();
-        $comments = UserComment::select('users.*','users_comments.comment')
-        -> join('users','users.id','users_comments.user_id')
-        -> where('group_id',$id)->orderBy('users_comments.updated_at','desc')->get();
-        return view('sections.grupos.groupdetail')
-        ->with('groupsfavorites', $groupsfavorites)
-        -> with('groups',$groups)
-        -> with('comments',$comments)
-        -> with('id',$id);
     }
 }

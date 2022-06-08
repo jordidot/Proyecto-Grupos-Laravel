@@ -18,17 +18,9 @@ class GroupController extends Controller
 
     public function index()
     {
-<<<<<<< HEAD
         $userGroup = User::select('cities.name AS cityName', 'users.name')
         -> join('cities','cities.id','=','users.city')
         -> get();
-=======
-        // $userGroup = User::select( 'cities.name AS cityName', 'users.*')
-        // -> join('cities','cities.id','=','users.user_id')
-        // -> get();
-        $userGroup = User::get();
-        $userGroupCity = City::select('cities.name AS CityName')->find(Auth::User()-> city);
->>>>>>> cambios-css
         return view('admin.gestion.groups.index') 
         -> with('userGroup',$userGroup)
         -> with('userGroupCity',$userGroupCity);

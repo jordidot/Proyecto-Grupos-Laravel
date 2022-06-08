@@ -106,15 +106,18 @@
         </div>
     </div>
     <div class="btn-follow-concert">
-        @if(count($concertsfavorites) == 0)
+        @if(Auth::User())
+        @if(count($concertsfavorites)==0)
             @foreach ($concert as $concerto)
                 @include('sections.conciertos.followsSure')
             @endforeach
-        @else
+        @else 
             @foreach ($concert as $concerto)
                 @include('sections.conciertos.follows')
             @endforeach
         @endif
+        @endif
+        
     </div>
 </div>
 
