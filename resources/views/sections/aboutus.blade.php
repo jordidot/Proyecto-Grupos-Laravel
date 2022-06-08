@@ -9,7 +9,7 @@
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/762a7ec47b.js" crossorigin="anonymous"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="{{asset('css/aboutus.css')}}?v=echo time();">
+    <link rel="stylesheet" href="{{asset('css/aboutus.css')}}">
 </head>
 <body>
     <header class="header-container-aboutus">

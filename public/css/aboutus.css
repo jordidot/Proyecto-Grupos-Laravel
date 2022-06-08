@@ -40,16 +40,12 @@ body{
     
 }
 .container{
-    position: relative;
-    float: left;
     width:100%;
     height: auto;
     top:-314px;
     color:black;
     font-size: 30px;
     text-align: center;
-    
-    
 }
 .title-container{
     position:relative;
@@ -110,6 +106,12 @@ body{
     border: 1px green solid;
     
 }
+@media(min-width:1670px){
+    .container{
+        position:relative;
+        float:left;
+    }
+}
 @media (max-width: 1670px) {
     .title-header-aboutus-2{
         display:none;
@@ -117,10 +119,11 @@ body{
     .title-header-aboutus-3{
         display:none;
     }
-    .container2{
-        top:-350px;
+    .container{
+        
     }
 }
+
 @media (max-width: 875px) {
     .title-header-aboutus{
         font-size: 30px;
@@ -136,12 +139,18 @@ body{
     .title-header-aboutus-3{
         display:none;
     }
+    .container{
+        
+    }
 }
 @media (max-width: 637px) {
     .title-header-aboutus{
         font-size: 20px;
         margin:0 0 0 40px;
         top:0px;
+    }
+    .title-container{
+        font-size:20px;
     }
     .header-container-aboutus{
         height:100px;
@@ -151,5 +160,8 @@ body{
     }
     .title-header-aboutus-3{
         display:none;
+    }
+    .container{
+        
     }
 }
