@@ -12,6 +12,17 @@
 
                 <div class="card-body">
                     
+<<<<<<< HEAD
+=======
+                    @if (count($userGroup) > 0)
+                    @foreach ($userGroup as $grupos)
+                        {{ $grupos->name}}
+                        {{ $grupos-> cityName}}
+                    @endforeach
+                        @else
+                        No se ha encontrado ningun grupo
+                    @endif
+>>>>>>> cambios-css
                     
                 </div>
             </div>

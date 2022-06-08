@@ -40,7 +40,12 @@ class SectionsController extends Controller
             -> with('concerts', $concerts)
             -> with('query',$query);
         }
+<<<<<<< HEAD
         elseif (count(Group::get())==0)
+=======
+
+        if(is_null($request->searchconcert) || $request->searchconcert === ' ')
+>>>>>>> cambios-css
         {
             return view('sections.home');
         }
