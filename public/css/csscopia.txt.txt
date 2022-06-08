@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+body{
+    font-family: 'Lato', sans-serif;
+}
+.header-container-aboutus{
+    width:100%;
+    height: 200px;
+    border:1px solid black;
+    background-image:url(../images/banner-header.jpg);
+    background-color: #1a1a1a;
+    background-blend-mode: overlay;
+    background-size:100% 800px;
+    background-position-y: -220px;
+}
+.title-header-aboutus{
+    color:white;
+    font-size:50px;
+    margin: 0 0 0 300px;
+    position:relative;
+    float:left;
+    top:-40px;
+}
+.title-header-aboutus-2{
+    color:white;
+    font-size:120px;
+    position:relative;
+    float:left;
+    top:-180px;
+    
+}
+.title-header-aboutus-3{
+    width: 800px;
+    height:110px;
+    color:white;
+    font-size:10px;
+    position:relative;
+    float:left;
+    top:50px;
+    left: 20px;
+    
+}
+.container{
+    width:100%;
+    height: auto;
+    top:-314px;
+    color:black;
+    font-size: 30px;
+    text-align: center;
+}
+.title-container{
+    position:relative;
+    float:center;
+    margin-bottom: 50px;
+}
+.container-aboutus-profile{
+    width:80%;
+    height:auto;
+    margin: 0 auto;
+    
+}
+.item-profiles{
+    width:350px;
+    height:max-content;
+    border:1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+.image-profile{
+    position:relative;
+    border-radius:100px;
+    width:200px;
+    height:200px;
+    margin: 0 auto;
+    top:-35px;
+    
+}
+.image-profile img{
+    width:100%;
+    height:inherit;
+    border-radius:inherit;
+    border: #1091AD solid 4px;
+}
+.content-profile{
+    border-radius:5px;
+    width:100%;
+    height:max-content;
+    
+    font-size: 20px;
+
+}
+.description-profile p{
+    font-size:15px;
+    padding:30px;
+}
+.rs-profile img{
+    width:100px;
+    height:100px;
+}
+.home_button {
+    position:relative;
+    float:left;
+    width:100px;
+    height:20px;
+    border: 1px green solid;
+    
+}
+@media(min-width:1670px){
+    .container{
+        position:relative;
+        float:left;
+    }
+}
+@media (max-width: 1670px) {
+    .title-header-aboutus-2{
+        display:none;
+    }
+    .title-header-aboutus-3{
+        display:none;
+    }
+    .container{
+        
+    }
+}
+
+@media (max-width: 875px) {
+    .title-header-aboutus{
+        font-size: 30px;
+        top:-20px;
+
+    }
+    .header-container-aboutus{
+        height:100px;
+    }
+    .title-header-aboutus-2{
+        display:none;
+    }
+    .title-header-aboutus-3{
+        display:none;
+    }
+    .container{
+        
+    }
+}
+@media (max-width: 637px) {
+    .title-header-aboutus{
+        font-size: 20px;
+        margin:0 0 0 40px;
+        top:0px;
+    }
+    .title-container{
+        font-size:20px;
+    }
+    .header-container-aboutus{
+        height:100px;
+    }
+    .title-header-aboutus-2{
+        display:none;
+    }
+    .title-header-aboutus-3{
+        display:none;
+    }
+    .container{
+        
+    }
+}
