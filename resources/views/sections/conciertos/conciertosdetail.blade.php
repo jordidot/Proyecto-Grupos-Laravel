@@ -106,7 +106,7 @@
         </div>
     </div>
     <div class="btn-follow-concert">
-        @if(count($concertsfavorites)==0)
+        @if(count($concertsfavorites) == 0)
             @foreach ($concert as $concerto)
                 @include('sections.conciertos.followsSure')
             @endforeach
