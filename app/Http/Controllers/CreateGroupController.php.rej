@@ -1,0 +1,12 @@
+diff a/app/Http/Controllers/CreateGroupController.php b/app/Http/Controllers/CreateGroupController.php	(rejected hunks)
+@@ -51,10 +51,6 @@
+     public function create()
+     {
+ 
+-        
+-        //
+-        // $data = file_get_contents(asset('json/municipios.json'));
+-        // $municipios = json_decode($data,true);
+         $municiopios = City::get();
+         return view('admin.CrearGrupo.create')
+         -> with('municiopios',$municiopios);

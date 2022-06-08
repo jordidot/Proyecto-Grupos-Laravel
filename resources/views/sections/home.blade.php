@@ -49,7 +49,7 @@
 
             <div class="col-search-btn-login-register">
                 <div class="search-navbar-desktop">
-                    <form action="{{route('search')}}" method="POST">
+                    <form action="{{route('search')}}" method="GET">
                         @csrf
                         <div class="form-icon">
                             <input type="text" name="searchconcert" placeholder="{{__('web.found_concert')}}...">

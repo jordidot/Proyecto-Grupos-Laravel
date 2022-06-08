@@ -68,9 +68,8 @@ class CreateGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
        
+<<<<<<< HEAD
         // Script subir imagen 
 
         if($request->hasFile('imgProfile'))
@@ -104,6 +103,8 @@ class CreateGroupController extends Controller
 
 
         return view('admin.CrearGrupo.store');
+=======
+>>>>>>> cambios-css
     }
 
     /**
@@ -123,9 +124,33 @@ class CreateGroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+         // Script subir imagen 
+         if($request->hasFile('imgProfile'))
+         {
+             // Guardar la img en una variable
+             $imgProfile = $request->imgProfile;
+             // guardar nombre 
+             $nom = basename($_FILES["imgProfile"]["name"]); 
+             $typefile = strtolower(pathinfo($nom,PATHINFO_EXTENSION));
+             $ruta = public_path('images/users/'.$nom);
+             $rutaddbb =  'images/users/'.$nom;
+             $moveFile = move_uploaded_file($_FILES["imgProfile"]["tmp_name"],$ruta);
+ 
+             $data = [
+                 "first_name" => $request->firstName,
+                 "last_name"  => $request->lastName,
+                 "city"       => $request->selectCity,
+                 "image_user" => $rutaddbb
+             ];
+ 
+             $group = User::create($data);
+             return redirect() -> route('groups.index');
+ 
+         }
+ 
+         return view('admin.CrearGrupo.store');
     }
 
     /**
