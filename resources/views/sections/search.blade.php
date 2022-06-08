@@ -184,7 +184,8 @@
             <div class="container-flex-concerts">
                 <!-- Items -->
                 @if(count($groups)==0)
-                    <p>No hay ningún dato que mostrar.</p>
+
+                    <p><?php for($i=0;$i<strlen($concerts);$i++){print_r($i['title']);}?></p>
                     @else
                         @foreach($groups as $group)
                         <div class="items-concerts">
