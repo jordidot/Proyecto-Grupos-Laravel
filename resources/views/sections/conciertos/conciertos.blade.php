@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conciertos</title>
+    <title>{{__('web.title_header')}}</title>
 
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/762a7ec47b.js" crossorigin="anonymous"></script>
@@ -44,13 +44,13 @@
     
                 <div class="col-search-btn-login-register">
                     <div class="search-navbar-desktop">
-                        <form action="{{route('search')}}" method="POST">
-                            @csrf
-                            <div class="form-icon">
-                                <input type="text" name="searchconcert" placeholder="{{__('web.found_concert')}}...">
-                                <button type="submit"> <i class="fas fa-search"></i></button>
-                            </div>
-                        </form>
+                    <form action="{{route('search')}}" method="GET">
+                        @csrf
+                        <div class="form-icon">
+                            <input type="text" name="searchconcert" placeholder="{{__('web.found_concert')}}...">
+                            <button type="submit"> <i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
                     </div>
                     
                     @guest
@@ -94,10 +94,10 @@
                             </div>
                         </div>
                     <div class="list-links">
-                        <a href="">{{__('web.title_home')}}</a>
-                        <a href="">{{__('web.title_concerts')}}</a>
-                        <a href="">{{__('web.title_groups')}}</a>
-                        <a href="">{{__('web.title_about_us')}}</a>
+                        <a href="{{route('home')}}">{{__('web.title_home')}}</a>
+                        <a href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
+                        <a href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
+                        <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                     </div>
     
                     @guest
@@ -138,7 +138,7 @@
         <div class="content-popup">
             <div class="content-head">
                 <div class="head-title">
-                    <h3>Identificate</h3>
+                    <h3>{{__('web.identificate')}}</h3>
                 </div>
                 <div class="btn-close close-modal-register">
                     <i class="fas fa-times"></i>
@@ -146,11 +146,11 @@
             </div>
             <div class="content-info-register">
                 <div class="title-info">
-                    <h3>Como deseas identificarte?</h3>
+                    <h3>{{__('web.register_option')}}</h3>
                 </div>
                 <div class="btn-group">
-                    <a href="">Login</a>
-                    <a href="">Registro</a>
+                    <a href="{{route('login')}}">{{__('web.login')}}</a>
+                    <a href="{{route('register')}}">{{__('web.register')}}</a>
                 </div>
             </div>
         </div>
@@ -169,13 +169,13 @@
         <section class="all-concerts">
             <div class="title-view-all">
                 <div class="title-section">
-                    <h2>Todos los Conciertos</h2>
+                    <h2>{{__('web.all_concerts')}}</h2>
                 </div>
                 <div class="view-all">
                     <p>
-                        <a class="btn-filter filter-actived" href="">ACS</a>
+                        <a class="btn-filter filter-actived" href="">{{__('web.acs')}}</a>
                         /
-                        <a class="btn-filter" href="">DES</a>
+                        <a class="btn-filter" href="">{{__('web.des')}}</a>
                     </p>
                     
                 </div>
@@ -183,7 +183,7 @@
             <div class="container-flex-concerts">
                     <!-- Items -->
                     @if(count($concerts)==0)
-                    <p>No hay ningún dato que mostrar.</p>
+                    <p>{{__('web.nothing')}}</p>
                     @else
                         @foreach($concerts as $concert)
                         <div class="items-concerts">
@@ -198,11 +198,11 @@
                                 </div>
                                 <div class="details-content">
                                     <p>
-                                        <span class="fw-bold">Ubicacion:</span>
+                                        <span class="fw-bold">{{__('web.ubication_title')}}:</span>
                                         {{$concert->name}}
                                     </p>
                                     <p>
-                                        <span class="fw-bold">Fecha:</span>
+                                        <span class="fw-bold">{{__('web.date_title')}}:</span>
                                         {{$concert->date}}
                                     </p>
                                 </div>
@@ -212,7 +212,7 @@
                                     </p>
                                 </div>
                                 <div class="btn-content">
-                                    <a href="{{route('conciertosdetails',['id' => $concert-> id ])}}">Ver mas</a>
+                                    <a href="{{route('conciertosdetails',['id' => $concert-> id ])}}">{{__('web.see_more_button')}}</a>
                                 </div>
                             </div>
                         </div>

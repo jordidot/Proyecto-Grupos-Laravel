@@ -14,7 +14,7 @@
 
         </div>
         @else
-        <a href="{{route('groups.create')}}" class="btn btn-success mb-2">Crear Grupo</a>
+        <a href="{{route('groups.create')}}" class="btn btn-success mb-2">{{__('web.create_group')}}</a>
         <table class="table table-striped text-center">
             <thead>
                 <tr>
