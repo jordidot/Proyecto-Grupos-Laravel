@@ -210,34 +210,7 @@
                     @endif
             </div>
         </section>
-        <div class="paginator">
-            <ul>
-                
-                <li class="pagintator-arrow">
-                    <a  href="">
-                        <i class="fas fa-angle-double-left"></i>
-                    </a>
-                </li>
-                <li class="paginator-actived">
-                    <a href="">1</a>
-                </li>
-                <li>
-                    <a href="">2</a>
-                </li>
-                <li>
-                    <a href="">3</a>
-                </li>
-                <li>
-                    <a href="">4</a>
-                </li>
-                <li class="pagintator-arrow">
-                    <a href="">
-                        <i class="fas fa-angle-double-right"></i>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
+        
     </main>
 
 

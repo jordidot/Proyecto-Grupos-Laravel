@@ -134,19 +134,27 @@ class SearchsController extends Controller
         $data->save();
         }
             
-        if($imageUser=$request->file('image_group'))
+        if($imageGroup=$request->file('image_group'))
         {
+            $bannerGroup=$request->file('banner_group');
             $nameImage=strtolower(basename($_FILES["image_group"]['name']));
+            $nameBanner=strtolower(basename($_FILES["banner_group"]['name']));
             $ruta = 'images/imageGroup/group'.$id.'/';
+            $ruta2 = 'images/bannerGroup/group'.$id.'/';
             $rutadb = 'images/imageGroup/group'.$id.'/'.$nameImage;
+            $rutadb2 = 'images/bannerGroup/group'.$id.'/'.$nameBanner;
             
-            if(!(public_path('images/imageGroups/group'.$id))){
-            mkdir('images/imageUsers/user'.$id);}
-
-            $imageUser->move($ruta,$nameImage);
+            if(!(public_path('images/imageGroup/group'.$id))){
+            mkdir('images/imageGroup/group'.$id);}
+            if(!(public_path('images/bannerGroup/group'.$id))){
+                mkdir('images/bannerGroup/group'.$id);}
+            
+            $imageGroup->move($ruta,$nameImage);
+            $bannerGroup->move($ruta2,$nameBanner);
 
             $dataImage=Group::find($id);
             $dataImage->image_group=$rutadb;
+            $dataImage->banner_group=$rutadb2;
             $dataImage->save();
         }
         return redirect('groups/'.$id.'/edit');

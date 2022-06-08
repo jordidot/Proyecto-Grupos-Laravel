@@ -203,7 +203,7 @@
                                     </p>
                                 </div>
                                 <div class="btn-content">
-                                    <a href="">{{__('web.see_all_button')}}</a>
+                                    <a href="{{route('groupsdetails', ['id'=>$group->id])}}">{{__('web.see_all_button')}}</a>
                                 </div>
                             </div>
                         </div>

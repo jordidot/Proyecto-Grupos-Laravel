@@ -42,6 +42,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     
     // Follow and unfollow concert
     Route::resource('follows', 'GroupsfavoritesController');
+    Route::resource('fgroups', 'GroupFavoritesController');
     //Comprar entradas
     Route::get('/entrades', 'SectionsController@buyticket')->name('buyticket');
 });

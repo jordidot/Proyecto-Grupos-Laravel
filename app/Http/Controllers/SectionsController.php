@@ -96,4 +96,18 @@ class SectionsController extends Controller
     public function buyticket(){
         return view('maintenance');
     }
+    public function groupsdetail($id){
+        $groupsfavorites=GroupFavorite::get();
+        $concerts=Concert::where('group_id', $id)->get();
+        $groups = Group::where('id',$id)->get();
+        $comments = UserComment::select('users.*','users_comments.comment')
+        -> join('users','users.id','users_comments.user_id')
+        -> where('group_id',$id)->orderBy('users_comments.updated_at','desc')->get();
+        return view('sections.grupos.groupdetail')
+        ->with('groupsfavorites', $groupsfavorites)
+        -> with('concerts', $concerts)
+        -> with('groups',$groups)
+        -> with('comments',$comments)
+        -> with('id',$id);
+    }
 }

@@ -13,6 +13,10 @@
             <input type="file" class="form-control" name="image_group">
         </div>
         <div class="mb-3">
+            <label class="form-label" for="banner_group">{{__('web.banner_group')}}</label>
+            <input type="file" class="form-control" name="banner_group">
+        </div>
+        <div class="mb-3">
             <input name="submit" type="submit" class="btn btn-outline-primary" value="{{__('web.modificate_button')}}">
         </div>
         <div class="mb-3">

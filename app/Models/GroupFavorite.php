@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class GroupFavorite extends Model
 {
     protected $table='groups_favorites';
+    protected $primaryKey='user_id';
     use SoftDeletes;
     protected $fillable=['user_id','group_id','deleted_at'];
     
