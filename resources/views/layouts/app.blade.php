@@ -58,6 +58,7 @@
                                     
                                         <a href="{{Route('profiles.edit',['profile' => Auth::user()->id])}}" class="dropdown-item">Editar perfil</a>
                                     @if (Auth::user()->is_admin == 1 || Auth::user()->is_group == 1 )
+                                        <a href="{{Route('generos.index')}}" class="dropdown-item">Gestion de Generos</a>
                                         <a href="{{route('groups.index')}}" class="dropdown-item">Gestión grupos</a>
                                         <a href="{{Route('conciertos.index')}}" class="dropdown-item">Gestion de conciertos</a>
                                     @endif

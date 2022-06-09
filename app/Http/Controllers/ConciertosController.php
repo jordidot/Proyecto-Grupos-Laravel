@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Concert;
+use App\Models\Gender;
 use App\Models\ConcertTranslation;
+use App\Models\ConcertGender;
 
 class ConciertosController extends Controller
 {
@@ -37,8 +39,10 @@ class ConciertosController extends Controller
     {
         //
         $municiopios = City::get();
+        $generos = Gender::get();
         return view('admin.Conciertos.create')
-        -> with('municiopios',$municiopios);
+        -> with('municiopios',$municiopios)
+        -> with('generos', $generos);
     }
 
     /**
@@ -105,6 +109,14 @@ class ConciertosController extends Controller
             $data['en'] = $data_en;
 
             $group = Concert::create($data);
+
+            $dataGenero = [
+                'id_concert' =>  $group -> id,
+                'id_gender'  =>  $request -> generoCity
+            ];
+
+            $genderConcert = ConcertGender::create($dataGenero);
+
             return redirect() -> route('conciertos.index');
 
            }else
@@ -114,6 +126,9 @@ class ConciertosController extends Controller
           
 
         }
+
+
+        
 
 
 

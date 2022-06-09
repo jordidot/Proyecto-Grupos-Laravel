@@ -44,4 +44,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::resource('follows', 'GroupsfavoritesController');
     //Comprar entradas
     Route::get('/entrades', 'SectionsController@buyticket')->name('buyticket');
+
+    Route::resource('generos','GenerosController')-> middleware('auth');
 });

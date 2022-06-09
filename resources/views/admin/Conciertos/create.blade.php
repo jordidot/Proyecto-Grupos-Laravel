@@ -67,6 +67,25 @@
                        @endif
                                                   
                     </select>
+                
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Generos</label>
+                    <select class="form-control" name="generoCity">
+
+                       @if (count($generos) > 0)
+                           
+                        @foreach ($generos as $genero)
+                            @if ($genero->id === 1)
+                                <option selected value="{{$genero->id}}">{{$genero->name}}</option>
+                            @else
+                            <option value="{{$genero->id}}">{{$genero->name}}</option>
+                            @endif
+                        @endforeach
+                           
+                       @endif
+                                                  
+                    </select>
                 </div>
 
                 <div class="mb-4">

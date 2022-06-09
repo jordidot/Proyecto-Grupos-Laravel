@@ -171,14 +171,14 @@
                 <div class="title-section">
                     <h2>Todos los Grupos</h2>
                 </div>
-                <div class="view-all">
+                {{-- <div class="view-all">
                     <p>
                         <a class="btn-filter filter-actived" href="">ACS</a>
                         /
                         <a class="btn-filter" href="">DES</a>
                     </p>
                     
-                </div>
+                </div> --}}
             </div>
             <div class="container-flex-concerts">
                 <!-- Items -->
