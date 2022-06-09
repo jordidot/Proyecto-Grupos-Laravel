@@ -99,10 +99,10 @@
                         </div>
                     </div>
                 <div class="list-links">
-                    <a href="">{{__('web.title_home')}}</a>
-                    <a href="">{{__('web.title_concerts')}}</a>
-                    <a href="">{{__('web.title_groups')}}</a>
-                    <a href="">{{__('web.title_about_us')}}</a>
+                    <a href="{{route('home')}}">{{__('web.title_home')}}</a>
+                    <a href="{{route('conciertos')}}">{{__('web.title_concerts')}}</a>
+                    <a href="{{route('groups.all')}}">{{__('web.title_groups')}}</a>
+                    <a href="{{route('aboutus')}}">{{__('web.title_about_us')}}</a>
                 </div>
 
                 @guest
@@ -204,7 +204,7 @@
             <div class="container-flex-concerts">
                 <!-- Items -->
                 @if(count($concerts)==0)
-                <p>No hay ningún dato que mostrar.</p>
+                <p>{{__('web.nothing')}}</p>
                 @else
                     @foreach($concerts as $concert)
                         <div class="items-concerts">
@@ -265,7 +265,7 @@
             <div class="container-artist-flex">
                 <!-- Items -->
                 @if(count($groups)==0)
-                    <p>No se puede mostrar ningún dato.</p>
+                    <p>{{__('web.nothing')}}</p>
                 @else
                 @foreach($groups as $group)
                 <div class="items-artist">

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-lg container-sm  mt-4 ">
     <div class="container py-3 rounded-top  bg-dark">
-        <h3 class="text-white px-2">Editar Concierto</h3>
+        <h3 class="text-white px-2">{{__('web.edit_profile_title')}}</h3>
     </div>
     <div class="container h-50 shadow py-3 rounded shadow">
         @foreach($users as $user)

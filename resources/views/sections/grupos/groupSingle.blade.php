@@ -15,7 +15,7 @@
     @section('content')
         <div class="info-group">
             <div class="title-group">
-                <h2>Estopa</h2>
+                <h2></h2>
             </div>
             <div class="count-follow">
                 <p class="fw-bold">400 SEGUIDORES</p>

@@ -28,7 +28,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     // Conciertos admin
     Route::resource('conciertos', 'ConciertosController')->middleware('auth');
     // Buscador
-    Route::post('/search','SectionsController@search') -> name('search');
+    Route::get('/search','SectionsController@search') -> name('search');
 
      // Conciertos public
      Route::get('/conciertos-public', 'SectionsController@conciertos')-> name('conciertos');
@@ -42,6 +42,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     
     // Follow and unfollow concert
     Route::resource('follows', 'GroupsfavoritesController');
+    Route::resource('fgroups', 'GroupFavoritesController');
     //Comprar entradas
     Route::get('/entrades', 'SectionsController@buyticket')->name('buyticket');
 

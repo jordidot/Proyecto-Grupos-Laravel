@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-lg container-sm  mt-4 ">
     <div class="container py-3 rounded-top  bg-dark">
-        <h3 class="text-white px-2">Editar Concierto</h3>
+        <h3 class="text-white px-2">{{__('web.edit_groups')}}</h3>
     </div>
     <div class="container h-50 shadow py-3 rounded shadow">
         @foreach($groups as $group)
@@ -11,6 +11,10 @@
         <div class="mb-3">
             <label class="form-label" for="image_group">{{__('web.image_group')}}</label>
             <input type="file" class="form-control" name="image_group">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="banner_group">{{__('web.banner_group')}}</label>
+            <input type="file" class="form-control" name="banner_group">
         </div>
         <div class="mb-3">
             <input name="submit" type="submit" class="btn btn-outline-primary" value="{{__('web.modificate_button')}}">
